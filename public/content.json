@@ -1,0 +1,158 @@
+{
+ "address": "1MiNiNG3Vbd6KuSF6XjqY1cB7sEGUC73A8",
+ "address_index": 14886911,
+ "background-color": "#FFF",
+ "clone_root": "template-new",
+ "cloned_from": "1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D",
+ "description": "Minado",
+ "files": {
+  ".git/COMMIT_EDITMSG": {
+   "sha512": "9c3da607ae85041e1b3cfa860842465d5a931779f92aa3b5aa8ad91b86a65849",
+   "size": 13
+  },
+  ".git/HEAD": {
+   "sha512": "76b199f1bffdc6d21547895431b0f85f3857df400225cbd1ae55e7ded09786a8",
+   "size": 23
+  },
+  ".git/config": {
+   "sha512": "51a4891f178814ab4c3aec44072abbfaf9aa38c6ed4ae540c4d0d8608786af86",
+   "size": 356
+  },
+  ".git/description": {
+   "sha512": "f7e152f75b124c3e1c5d12f00427729d9eec4e2c1bf70d7606440a6600d00336",
+   "size": 73
+  },
+  ".git/hooks/applypatch-msg.sample": {
+   "sha512": "536cce804d84e25813993efdd240537b52d00ce9cdcecf1982f85096d56a5212",
+   "size": 478
+  },
+  ".git/hooks/commit-msg.sample": {
+   "sha512": "d6bb7fa747f4625adf1877f546565cbe812ca7dd4168f7e9068e6732555d8737",
+   "size": 896
+  },
+  ".git/hooks/post-update.sample": {
+   "sha512": "473ad124642571656276bf83b9ff63ab1804d3c23a5bdae52391c6f70a894849",
+   "size": 189
+  },
+  ".git/hooks/pre-applypatch.sample": {
+   "sha512": "cb78aa7e9b9c146e5db65d86dd83f04e2b6942a06fab50c704a0fd900683f3b6",
+   "size": 424
+  },
+  ".git/hooks/pre-commit.sample": {
+   "sha512": "4a7ac2ed2ffe50d2a997c3477b5855c3d19423c295a82f7d660be3418217a183",
+   "size": 1642
+  },
+  ".git/hooks/pre-push.sample": {
+   "sha512": "37cd20a090494acb16c2255fe93dadeb409f2553afddc409dad5b5e99c9f5612",
+   "size": 1348
+  },
+  ".git/hooks/pre-rebase.sample": {
+   "sha512": "00d21d5d72386c3d9b5a1c36ba85201f730556a8295d4353af54af7892ab8101",
+   "size": 4898
+  },
+  ".git/hooks/pre-receive.sample": {
+   "sha512": "ee08c11fab7e896b2e09c241954ba7640338b12c75cd8040daf053c31b2f2223",
+   "size": 544
+  },
+  ".git/hooks/prepare-commit-msg.sample": {
+   "sha512": "50ec8a0dd98427e80a82a8d8ce44462a845876e1594c9d0e89483ce9a8aaad61",
+   "size": 1492
+  },
+  ".git/hooks/update.sample": {
+   "sha512": "759abd33e5d1dda9b3e3d3116c47b23f616320d70cd66d567b1c4eeefeb6d785",
+   "size": 3610
+  },
+  ".git/index": {
+   "sha512": "74618854e9d678773f2f9a33b5626e236420b68aecc0077bbabcb0fdd05b1fb8",
+   "size": 289
+  },
+  ".git/info/exclude": {
+   "sha512": "9828c6ecdf91bf117416e17f4ee9caee2e1e37b6fb00b9ff04035ace17a3089b",
+   "size": 240
+  },
+  ".git/logs/HEAD": {
+   "sha512": "9af3a1d3b93553ef8bc51df4232917460c9231317d020153b47786cf317f785c",
+   "size": 156
+  },
+  ".git/logs/refs/heads/master": {
+   "sha512": "9af3a1d3b93553ef8bc51df4232917460c9231317d020153b47786cf317f785c",
+   "size": 156
+  },
+  ".git/logs/refs/remotes/origin/master": {
+   "sha512": "f30c4ec3ceaa252309ac32893a72b6f04d737d9311fa7299b3ad8bbdf835eecc",
+   "size": 140
+  },
+  ".git/objects/1f/717dcef306e8063dd3e424b653f38551a85fec": {
+   "sha512": "1e43b5d6a5d0a6e829ac249979d482b2ea79178ee94efb2f0f4935d9772e614a",
+   "size": 120
+  },
+  ".git/objects/67/48eeb7ef0eb9354fa3f808a2bb31b71717d6e6": {
+   "sha512": "6d6f3903aa766b968ab455681c8ea18a669d2a88d25e09a083894d4d150ab5f8",
+   "size": 121
+  },
+  ".git/objects/b0/1890bf07082e69ed6e19abc0fc9612d1ef4a89": {
+   "sha512": "a1489e333be308c49b05b0ebf58562b8ac71673a60d9aa5136535f780f2779bc",
+   "size": 1198
+  },
+  ".git/objects/c3/a00afe47e635fb203fa21fe3492b624b14d132": {
+   "sha512": "3239ce67a860803722398a7b21cc8f05b62481fb9915d1527d3fa5283f0c3315",
+   "size": 651
+  },
+  ".git/objects/e2/b04d842dea544fb6f10c2e65a3e650491ae8c4": {
+   "sha512": "4b3fa4c2bca1ce7df81e09cb27f7ee71715dec92d9ed02a74afb5dad6fb2e028",
+   "size": 466
+  },
+  ".git/refs/heads/master": {
+   "sha512": "d7d4c6dc22412510dbf6046057e23d0d29d7cfa2cc72bf5922f49930b20de707",
+   "size": 41
+  },
+  ".git/refs/remotes/origin/master": {
+   "sha512": "d7d4c6dc22412510dbf6046057e23d0d29d7cfa2cc72bf5922f49930b20de707",
+   "size": 41
+  },
+  "LICENSE": {
+   "sha512": "772987556efbdb6ceba6af1b23597c76f2db3bf5d1a0b74f158046134954db0e",
+   "size": 1062
+  },
+  "README.md": {
+   "sha512": "b42d6eafce73a298fa5f6b7f1508e3295c4b057669689d20612e8e98a9f9b95f",
+   "size": 730
+  },
+  "favicon.ico": {
+   "sha512": "a5abc6a070c178ad021f768ba21dcde1ee2aa13dbace71c97a18ea18705e15eb",
+   "size": 4286
+  },
+  "images/Mole Miner.eps": {
+   "sha512": "e734d8e010c3af7f38ad36383c776370c115624c02d64c338521b26be68abd82",
+   "size": 1847814
+  },
+  "images/favicon.png": {
+   "sha512": "d9f808090d71ab31cd0eb414df2cc4eb6200374bac96bd4703707a8036294ca6",
+   "size": 2342
+  },
+  "images/icon.png": {
+   "sha512": "32a0302ca03b064e24a4d2887f9c9d87d1e51856ae96de2e5247b94ef5f97f4d",
+   "size": 144671
+  },
+  "index.html": {
+   "sha512": "4935ff2056fdb8b7e696a416cd666f667f123f49e68105e4062bd4df33aaa6e4",
+   "size": 3728
+  },
+  "js/ZeroFrame.js": {
+   "sha512": "42125c7aa72496455e044e3fd940e0f05db86824c781381edb7a70f71a5f0882",
+   "size": 3370
+  }
+ },
+ "ignore": "",
+ "inner_path": "content.json",
+ "modified": 1553212875,
+ "postmessage_nonce_security": true,
+ "signers_sign": "G96It8G0bDB5808k3DbgJBP8hFTYlftHOhc37q+/2EMiMT9FsL0XSMEBLeQJgWl6zaXUN+I5tpg60XWhdrlIgcE=",
+ "signs": {
+  "1MiNiNG3Vbd6KuSF6XjqY1cB7sEGUC73A8": "HBSVvuWGBeY3zKqsHneYy9eIg3w9m5JrSaWGbNTXbOwcZ6yebk8IQNo8z8YN5juTW60EoaGaI7PhydNIQEnUnts="
+ },
+ "signs_required": 1,
+ "title": "Minado",
+ "translate": ["js/all.js"],
+ "zeronet_version": "0.6.4"
+}
