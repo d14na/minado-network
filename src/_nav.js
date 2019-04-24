@@ -1,48 +1,45 @@
 export default {
-  items: [
-    {
-      name: 'Dashboard',
-      url: '/dashboard',
-      icon: 'icon-speedometer',
-      badge: {
-        variant: 'primary',
-        text: 'NEW'
-      }
-    },
-    {
-      title: true,
-      name: 'Theme',
-      class: '',
-      wrapper: {
-        element: '',
-        attributes: {}
-      }
-    },
-    {
-      name: 'Blends',
-      url: '/base/blends',
-      icon: 'fa fa-sliders'
-    },
-    {
-      name: 'Colors',
-      url: '/theme/colors',
-      icon: 'icon-drop'
-    },
-    {
-      name: 'Typography',
-      url: '/theme/typography',
-      icon: 'icon-pencil'
-    },
-    {
-      title: true,
-      name: 'Components',
-      class: '',
-      wrapper: {
-        element: '',
-        attributes: {}
-      }
-    },
-    {
+    items: [{
+        name: 'Dashboard',
+        url: '/dashboard',
+        icon: 'icon-speedometer',
+        badge: {
+            variant: 'primary',
+            text: 'NEW'
+        }
+    }, {
+        name: 'Blends',
+        url: '/blends',
+        icon: 'fa fa-sliders',
+        badge: {
+            variant: 'primary',
+            text: 'NEW'
+        }
+    }, {
+        title: true,
+        name: 'Theme',
+        class: '',
+        wrapper: {
+            element: '',
+            attributes: {}
+        }
+    }, {
+        name: 'Colors',
+        url: '/theme/colors',
+        icon: 'icon-drop'
+    }, {
+        name: 'Typography',
+        url: '/theme/typography',
+        icon: 'icon-pencil'
+    }, {
+        title: true,
+        name: 'Components',
+        class: '',
+        wrapper: {
+            element: '',
+            attributes: {}
+        }
+    }, {
       name: 'Base',
       url: '/base',
       icon: 'icon-puzzle',

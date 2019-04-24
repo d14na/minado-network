@@ -1,86 +1,58 @@
 <template>
-  <b-card :header="caption">
-    <b-table :dark="dark" :hover="hover" :striped="striped" :bordered="bordered" :small="small" :fixed="fixed" responsive="sm" :items="items" :fields="captions" :current-page="currentPage" :per-page="perPage">
-      <template slot="status" slot-scope="data">
-        <b-badge :variant="getBadge(data.item.status)">{{data.item.status}}</b-badge>
-      </template>
-    </b-table>
-    <nav>
-      <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" prev-text="Prev" next-text="Next" hide-goto-end-buttons/>
-    </nav>
-  </b-card>
+    <div class="animated fadeIn">
+        <b-row>
+            <b-col sm="12">
+                <c-table :table-data="itemsArray" :per-page=10 hover striped bordered small fixed caption="<i class='fa fa-align-justify'></i> Combined All Table"></c-table>
+            </b-col>
+        </b-row>
+    </div>
 </template>
 
 <script>
+import { shuffleArray } from '@/shared/utils'
+import cTable from './base/Table.vue'
 
+const someData = () => shuffleArray([
+  {username: 'Samppa Nori', registered: '2012/01/01', role: 'Member', status: 'Active', _rowVariant: 'success'},
+  {username: 'Estavan Lykos', registered: '2012/02/01', role: 'Staff', status: 'Banned', _rowVariant: 'danger'},
+  {username: 'Chetan Mohamed', registered: '2012/02/01', role: 'Admin', status: 'Inactive', _rowVariant: 'info'},
+  {username: 'Derick Maximinus', registered: '2012/03/01', role: 'Member', status: 'Pending'},
+  {username: 'Friderik Dávid', registered: '2012/01/21', role: 'Staff', status: 'Active'},
+  {username: 'Yiorgos Avraamu', registered: '2012/01/01', role: 'Member', status: 'Active'},
+  {username: 'Avram Tarasios', registered: '2012/02/01', role: 'Staff', status: 'Banned'},
+  {username: 'Quintin Ed', registered: '2012/02/01', role: 'Admin', status: 'Inactive'},
+  {username: 'Enéas Kwadwo', registered: '2012/03/01', role: 'Member', status: 'Pending'},
+  {username: 'Agapetus Tadeáš', registered: '2012/01/21', role: 'Staff', status: 'Active'},
+  {username: 'Carwyn Fachtna', registered: '2012/01/01', role: 'Member', status: 'Active'},
+  {username: 'Nehemiah Tatius', registered: '2012/02/01', role: 'Staff', status: 'Banned'},
+  {username: 'Ebbe Gemariah', registered: '2012/02/01', role: 'Admin', status: 'Inactive'},
+  {username: 'Eustorgios Amulius', registered: '2012/03/01', role: 'Member', status: 'Pending'},
+  {username: 'Leopold Gáspár', registered: '2012/01/21', role: 'Staff', status: 'Active'},
+  {username: 'Pompeius René', registered: '2012/01/01', role: 'Member', status: 'Active'},
+  {username: 'Paĉjo Jadon', registered: '2012/02/01', role: 'Staff', status: 'Banned'},
+  {username: 'Micheal Mercurius', registered: '2012/02/01', role: 'Admin', status: 'Inactive'},
+  {username: 'Ganesha Dubhghall', registered: '2012/03/01', role: 'Member', status: 'Pending'},
+  {username: 'Hiroto Šimun', registered: '2012/01/21', role: 'Staff', status: 'Active'},
+  {username: 'Vishnu Serghei', registered: '2012/01/01', role: 'Member', status: 'Active'},
+  {username: 'Zbyněk Phoibos', registered: '2012/02/01', role: 'Staff', status: 'Banned'},
+  {username: 'Einar Randall', registered: '2012/02/01', role: 'Admin', status: 'Inactive'},
+  {username: 'Félix Troels', registered: '2012/03/21', role: 'Staff', status: 'Active'},
+  {username: 'Aulus Agmundr', registered: '2012/01/01', role: 'Member', status: 'Pending'}
+])
 
 export default {
-  name: 'c-table',
-  inheritAttrs: false,
-  props: {
-    caption: {
-      type: String,
-      default: 'Table'
-    },
-    hover: {
-      type: Boolean,
-      default: false
-    },
-    striped: {
-      type: Boolean,
-      default: false
-    },
-    bordered: {
-      type: Boolean,
-      default: false
-    },
-    small: {
-      type: Boolean,
-      default: false
-    },
-    fixed: {
-      type: Boolean,
-      default: false
-    },
-    tableData: {
-      type: [Array, Function],
-      default: () => []
-    },
-    fields: {
-      type: [Array, Object],
-      default: () => []
-    },
-    perPage: {
-      type: Number,
-      default: 5
-    },
-    dark: {
-      type: Boolean,
-      default: false
-    }
-  },
+  name: 'tables',
+  components: {cTable},
   data: () => {
     return {
-      currentPage: 1,
-    }
-  },
-  computed: {
-    items: function() {
-      const items =  this.tableData
-      return Array.isArray(items) ? items : items()
-    },
-    totalRows: function () { return this.getRowCount() },
-    captions: function() { return this.fields }
-  },
-  methods: {
-    getBadge (status) {
-      return status === 'Active' ? 'success'
-        : status === 'Inactive' ? 'secondary'
-          : status === 'Pending' ? 'warning'
-            : status === 'Banned' ? 'danger' : 'primary'
-    },
-    getRowCount: function () {
-      return this.items.length
+      items: someData,
+      itemsArray: someData(),
+      fields: [
+        {key: 'username', label: 'User', sortable: true},
+        {key: 'registered'},
+        {key: 'role'},
+        {key: 'status', sortable: true}
+      ],
     }
   }
 }

@@ -88,6 +88,7 @@ import {
     Footer as TheFooter,
     Breadcrumb
 } from '@coreui/vue'
+
 import DefaultAside from './DefaultAside'
 import DefaultHeaderDropdownAccnt from './DefaultHeaderDropdownAccnt'
 
