@@ -16,22 +16,11 @@
             </b-navbar-nav>
 
             <b-navbar-nav class="ml-auto">
-                <b-nav-item class="d-md-down-none">
-                    <i class="icon-bell"></i>
-                    <b-badge pill variant="danger">5</b-badge>
-                </b-nav-item>
-                <b-nav-item class="d-md-down-none">
-                    <i class="icon-list"></i>
-                </b-nav-item>
-                <b-nav-item class="d-md-down-none">
-                    <i class="icon-location-pin"></i>
-                </b-nav-item>
-
-                <DefaultHeaderDropdownAccnt/>
+                <!-- spacer -->
             </b-navbar-nav>
 
             <AsideToggler class="d-none d-lg-block" />
-            <!--<AsideToggler class="d-lg-none" mobile />-->
+            <AsideToggler class="d-lg-none" mobile />
         </AppHeader>
 
         <div class="app-body">
@@ -73,6 +62,7 @@
 
 <script>
 import nav from '@/_nav'
+
 import {
     Header as AppHeader,
     SidebarToggler,
@@ -89,7 +79,6 @@ import {
 } from '@coreui/vue'
 
 import DefaultAside from './DefaultAside'
-import DefaultHeaderDropdownAccnt from './DefaultHeaderDropdownAccnt'
 
 export default {
     name: 'DefaultContainer',
@@ -101,7 +90,6 @@ export default {
         TheFooter,
         Breadcrumb,
         DefaultAside,
-        DefaultHeaderDropdownAccnt,
         SidebarForm,
         SidebarFooter,
         SidebarToggler,
@@ -121,6 +109,14 @@ export default {
         list () {
             return this.$route.matched.filter((route) => route.name || route.meta.label )
         }
+    },
+    mounted: async function () {
+        /* Minimize the sidebar at start. */
+        const isMinimized = document.body.classList.toggle('sidebar-minimized')
+        this.$emit('cui-sidebar-minimize', isMinimized)
+
+        /* Minimize the brand at start. */
+        document.body.classList.toggle('brand-minimized')
     }
 }
 </script>

@@ -6,11 +6,16 @@ export default {
     }, {
         name: 'Ministo',
         url: '/ministo',
-        icon: 'icon-ghost'
+        // icon: 'fa fa-industry'
+        icon: 'icon-energy'
     }, {
-        name: 'Pools',
+        name: 'InfinityPools',
         url: '/pools',
         icon: 'icon-layers'
+    }, {
+        name: 'Payouts',
+        url: '/payouts',
+        icon: 'fa fa-usd'
     }, {
         name: 'Analytics',
         url: '/charts',

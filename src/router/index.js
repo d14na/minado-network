@@ -60,7 +60,7 @@ export default new Router({
     routes: [{
         path: '/',
         redirect: '/dashboard',
-        name: 'Home',
+        name: 'Minado',
         component: DefaultContainer,
         children: [{
             path: 'dashboard',
