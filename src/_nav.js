@@ -42,7 +42,7 @@ export default {
         }
     }, {
         name: 'Profit Calculator',
-        url: '/calculator',
+        url: '/calc',
         icon: 'icon-calculator'
     }, {
         name: 'Online Resources',

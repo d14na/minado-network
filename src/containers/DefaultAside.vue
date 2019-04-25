@@ -226,6 +226,7 @@
             <template slot="title">
                 <i class='icon-settings'></i>
             </template>
+
             <div class="p-3">
                 <h6>Settings</h6>
                 <div class="aside-options">
@@ -285,6 +286,18 @@
                 </div>
                 <b-progress height={} class="progress-xs" variant="success" :value="10"></b-progress>
                 <small class="text-muted">25GB/256GB</small>
+            </div>
+        </b-tab>
+
+        <b-tab>
+            <template slot="title">
+                <i class='icon-logout'></i>
+            </template>
+
+            <div class="p-3">
+                <h6>Signout</h6>
+
+                confirm signout
             </div>
         </b-tab>
     </b-tabs>

@@ -12,6 +12,7 @@ const Colors = () => import('@/views/theme/Colors')
 const Charts = () => import('@/views/Charts')
 const Widgets = () => import('@/views/Widgets')
 
+const Calc = () => import('@/views/Calc')
 const Ministo = () => import('@/views/Ministo')
 const Pools = () => import('@/views/Pools')
 
@@ -66,6 +67,10 @@ export default new Router({
             path: 'dashboard',
             name: 'Dashboard',
             component: Dashboard
+        }, {
+            path: 'calc',
+            name: 'Calc',
+            component: Calc
         }, {
             path: 'ministo',
             name: 'Ministo',
