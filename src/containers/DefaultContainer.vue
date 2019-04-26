@@ -113,11 +113,11 @@ export default {
     },
     mounted: async function () {
         /* Minimize the sidebar at start. */
-        const isMinimized = document.body.classList.toggle('sidebar-minimized')
-        this.$emit('cui-sidebar-minimize', isMinimized)
+        // const isMinimized = document.body.classList.toggle('sidebar-minimized')
+        // this.$emit('cui-sidebar-minimize', isMinimized)
 
         /* Minimize the brand at start. */
-        document.body.classList.toggle('brand-minimized')
+        // document.body.classList.toggle('brand-minimized')
     }
 }
 </script>

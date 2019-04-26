@@ -9,9 +9,18 @@ export default {
         // icon: 'fa fa-industry'
         icon: 'icon-energy'
     }, {
-        name: 'InfinityPools',
-        url: '/pools',
+        name: 'InfinityPool',
+        url: '/pool',
         icon: 'icon-layers'
+    }, {
+        name: 'InfinityWell',
+        url: '/infinitywell',
+        icon: 'icon-present',
+        variant: 'success',
+        badge: {
+            variant: 'warning',
+            text: 'NEW'
+        }
     }, {
         name: 'Payouts',
         url: '/payouts',
@@ -32,15 +41,6 @@ export default {
         title: true,
         name: 'Minado Extras'
     }, {
-        name: 'InfinityWell',
-        url: '/infinitywell',
-        icon: 'icon-present',
-        variant: 'success',
-        badge: {
-            variant: 'warning',
-            text: 'NEW'
-        }
-    }, {
         name: 'Profit Calculator',
         url: '/calc',
         icon: 'icon-calculator'
@@ -49,7 +49,7 @@ export default {
         url: '/resources',
         icon: 'icon-info'
     }, {
-        name: 'Minado.App',
+        name: 'Minado.Mobile',
         url: 'https://minado.app',
         icon: 'icon-screen-smartphone',
         attributes: {

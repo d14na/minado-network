@@ -13,8 +13,13 @@ const Charts = () => import('@/views/Charts')
 const Widgets = () => import('@/views/Widgets')
 
 const Calc = () => import('@/views/Calc')
+const InfinityWell = () => import('@/views/InfinityWell')
 const Ministo = () => import('@/views/Ministo')
-const Pools = () => import('@/views/Pools')
+const Payouts = () => import('@/views/Payouts')
+const Pool = () => import('@/views/Pool')
+const Resources = () => import('@/views/Resources')
+const Settings = () => import('@/views/Settings')
+const Support = () => import('@/views/Support')
 
 // Views - Components
 const Cards = () => import('@/views/base/Cards')
@@ -72,13 +77,33 @@ export default new Router({
             name: 'Calc',
             component: Calc
         }, {
+            path: 'infinitywell',
+            name: 'InfinityWell',
+            component: InfinityWell
+        }, {
             path: 'ministo',
             name: 'Ministo',
             component: Ministo
         }, {
-            path: 'pools',
-            name: 'Pools',
-            component: Pools
+            path: 'pool',
+            name: 'Pool',
+            component: Pool
+        }, {
+            path: 'payouts',
+            name: 'Payouts',
+            component: Payouts
+        }, {
+            path: 'resources',
+            name: 'Resources',
+            component: Resources
+        }, {
+            path: 'settings',
+            name: 'Settings',
+            component: Settings
+        }, {
+            path: 'support',
+            name: 'Support',
+            component: Support
         }, {
             path: 'theme',
             redirect: '/theme/colors',
