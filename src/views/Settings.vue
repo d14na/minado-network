@@ -38,8 +38,8 @@
                         </b-input-group>
                     </b-form-group>
                     <div slot="footer">
-                        <b-button type="submit" size="sm" variant="success"><i class="fa fa-dot-circle-o"></i> Submit</b-button>
-                        <b-button type="reset" size="sm" variant="danger"><i class="fa fa-ban"></i> Reset</b-button>
+                        <b-button type="submit" size="sm" variant="success"><i class="fa fa-dot-circle-o"></i> Start</b-button>
+                        <b-button type="reset" size="sm" variant="danger"><i class="fa fa-ban"></i> Stop</b-button>
                     </div>
                 </b-card>
             </b-col>
@@ -162,19 +162,56 @@
 </template>
 
 <script>
+// import ethers from 'ethers'
+import SockJS from 'sockjs-client'
+
+const ethers = require('ethers')
+
+/* Initialize Minado.Network endpoint. */
+const MINADO_NETWORK_URL = 'http://asia.minado.network'
+
 export default {
-  name: 'forms',
-  data () {
-    return {
-      selected: [], // Must be an array reference!
-      show: true
+    data: () => ({
+        ws: null, // WebSocket
+
+        selected: [], // Must be an array reference!
+        show: true
+    }),
+    methods: {
+        init () {
+            /* Initialize primary web socket connection. */
+            // this.ws = new WebSocket(MINADO_NETWORK_URL)
+
+            this.ws = new SockJS(MINADO_NETWORK_URL)
+
+            console.log('this.ws', this.ws)
+
+            this.ws.onopen = () => {
+                console.log('open')
+
+                /* Build package. */
+                const pkg = {
+                    client: 'web',
+                    version: 'latest'
+                }
+
+                this.ws.send(JSON.stringify(pkg))
+            }
+
+            this.ws.onmessage = (e) => {
+                console.log('Incoming message:', e.data)
+                // this.ws.close()
+            }
+
+            this.ws.onclose = () => {
+                console.log('Connection closed.')
+            }
+        }
+    },
+    mounted: async function () {
+        /* Initialize. */
+        this.init()
     }
-  },
-  methods: {
-    click () {
-      // do nothing
-    }
-  }
 }
 </script>
 

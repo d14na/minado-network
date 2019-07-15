@@ -17,7 +17,7 @@ pragma solidity ^0.4.25;
  *          Github   : https://github.com/ethereum/EIPs/pull/918
  *          Reddit   : https://www.reddit.com/r/Tokenmining
  *
- * Version 19.7.11
+ * Version 19.7.15
  *
  * Web    : https://d14na.org
  * Email  : support@d14na.org
@@ -232,7 +232,7 @@ contract Minado is Owned {
      *
      * NOTE: Used for (integer-based) fractional calculations.
      */
-    uint private _BP_MULTI = 10000;
+    uint private _BP_MUL = 10000;
 
     /* Set InfinityStone decimals. */
     uint private _STONE_DECIMALS = 18;
@@ -251,11 +251,12 @@ contract Minado is Owned {
     /**
      * (Ethereum) Blocks Per Generation
      *
-     * NOTE: Initially, we mirror the Bitcoin POW mining algorithm.
+     * NOTE: We mirror the Bitcoin POW mining algorithm.
      *       We want miners to spend 10 minutes to mine each 'block'.
      *       (about 40 Ethereum blocks for every 1 Bitcoin block)
      */
-    uint _DEFAULT_BLOCKS_PER_GENERATION = 40;
+    // uint BLOCKS_PER_GENERATION = 40; // Mainnet & Ropsten
+    uint BLOCKS_PER_GENERATION = 120; // Kovan
 
     /**
      * (Mint) Generations Per Re-adjustment
@@ -387,24 +388,37 @@ contract Minado is Owned {
         address _provider
     ) external onlyAuthBy0Admin returns (bool success) {
         /* Set hash. */
-        bytes32 lastAdjustmentHash = keccak256(abi.encodePacked(
+        bytes32 hash = keccak256(abi.encodePacked(
             _namespace, '.',
             _token,
             '.last.adjustment'
         ));
 
         /* Set current adjustment time in Zer0net Db. */
-        _zer0netDb.setUint(lastAdjustmentHash, block.number);
+        _zer0netDb.setUint(hash, block.number);
 
         /* Set hash. */
-        bytes32 challengeHash = keccak256(abi.encodePacked(
+        hash = keccak256(abi.encodePacked(
+            _namespace, '.',
+            _token,
+            '.generations.per.adjustment'
+        ));
+
+        /* Set value in Zer0net Db. */
+        _zer0netDb.setUint(hash, _DEFAULT_GENERATIONS_PER_ADJUSTMENT);
+
+        /* Set hash. */
+        hash = keccak256(abi.encodePacked(
             _namespace, '.',
             _token,
             '.challenge'
         ));
 
         /* Set current adjustment time in Zer0net Db. */
-        _zer0netDb.setUint(challengeHash, uint(blockhash(block.number - 1)));
+        _zer0netDb.setBytes(
+            hash,
+            _bytes32ToBytes(blockhash(block.number - 1))
+        );
 
         /* Set mining target. */
         _setMiningTarget(
@@ -412,11 +426,8 @@ contract Minado is Owned {
             _MAXIMUM_TARGET
         );
 
-        /* Re-calculate difficulty. */
-        // _reAdjustDifficulty(_token);
-
         /* Set hash. */
-        bytes32 hash = keccak256(abi.encodePacked(
+        hash = keccak256(abi.encodePacked(
             _namespace, '.',
             _provider,
             '.has.auth.for.',
@@ -440,16 +451,12 @@ contract Minado is Owned {
         /* Retrieve the current challenge. */
         uint challenge = getChallenge(_token);
 
-        /**
-         * The PoW must contain work that includes a recent
-         * ethereum block hash (challenge hash) and the
-         * msg.sender's address to prevent MITM attacks
-         */
-        bytes32 digest = keccak256(abi.encodePacked(
+        /* Get mint digest. */
+        bytes32 digest = getMintDigest(
             challenge,
             msg.sender,
             _nonce
-        ));
+        );
 
         /* The challenge digest must match the expected. */
         if (digest != _digest) {
@@ -457,19 +464,19 @@ contract Minado is Owned {
         }
 
         /* The digest must be smaller than the target. */
-        if (uint(digest) > getMiningTarget(_token)) {
+        if (uint(digest) > getTarget(_token)) {
             revert('Oops! That solution is NOT valid.');
         }
 
         /* Set hash. */
-        bytes32 solutionHash = keccak256(abi.encodePacked(
+        bytes32 hash = keccak256(abi.encodePacked(
             _namespace, '.',
             digest,
             '.solutions'
         ));
 
         /* Retrieve value from Zer0net Db. */
-        uint solution = _zer0netDb.getUint(solutionHash);
+        uint solution = _zer0netDb.getUint(hash);
 
         /* Validate solution. */
         if (solution != 0x0) {
@@ -477,35 +484,33 @@ contract Minado is Owned {
         }
 
         /* Save this digest to 'solved' solutions. */
-        _zer0netDb.setUint(solutionHash, uint(digest));
+        _zer0netDb.setUint(hash, uint(digest));
 
         /* Set hash. */
-        bytes32 generationHash = keccak256(abi.encodePacked(
+        hash = keccak256(abi.encodePacked(
             _namespace, '.',
             _token,
             '.generation'
         ));
 
         /* Retrieve value from Zer0net Db. */
-        uint generation = _zer0netDb.getUint(generationHash);
+        uint generation = _zer0netDb.getUint(hash);
+
+        /* Increment the generation. */
+        generation = generation.add(1);
 
         /* Increment the generation count by 1. */
-        _zer0netDb.setUint(generationHash, generation.add(1));
+        _zer0netDb.setUint(hash, generation);
 
         /* Set hash. */
-        bytes32 adjustmentHash = keccak256(abi.encodePacked(
+        hash = keccak256(abi.encodePacked(
             _namespace, '.',
             _token,
             '.generations.per.adjustment'
         ));
 
         /* Retrieve value from Zer0net Db. */
-        uint genPerAdjustment = _zer0netDb.getUint(adjustmentHash);
-
-        /* Validate adjustment value. */
-        if (genPerAdjustment == 0) {
-            genPerAdjustment = _DEFAULT_GENERATIONS_PER_ADJUSTMENT;
-        }
+        uint genPerAdjustment = _zer0netDb.getUint(hash);
 
         // every so often, readjust difficulty. Dont readjust when deploying
         if (generation % genPerAdjustment == 0) {
@@ -513,7 +518,7 @@ contract Minado is Owned {
         }
 
         /* Set hash. */
-        bytes32 challengeHash = keccak256(abi.encodePacked(
+        hash = keccak256(abi.encodePacked(
             _namespace, '.',
             _token,
             '.challenge'
@@ -524,21 +529,28 @@ contract Minado is Owned {
          * for PoW to prevent pre-mining future blocks. Do this last,
          * since this is a protection mechanism in the mint() function.
          */
-        _zer0netDb.setUint(challengeHash, uint(blockhash(block.number - 1)));
+        _zer0netDb.setBytes(
+            hash,
+            _bytes32ToBytes(blockhash(block.number - 1))
+        );
 
         /* Retrieve mining reward. */
         // FIXME Add support for percentage reward.
         uint rewardAmount = getMintFixed(_token);
 
-        /* Transfer tokens to minter. */
-        _infinityPool().transfer(_token, msg.sender, rewardAmount);
+        /* Transfer (token) reward to minter. */
+        _infinityPool().transfer(
+            _token,
+            msg.sender,
+            rewardAmount
+        );
 
         /* Emit log info. */
         emit Mint(
             msg.sender,
             rewardAmount,
             generation,
-            blockhash(block.number - 1)
+            blockhash(block.number - 1) // next target
         );
 
         /* Return success. */
@@ -551,11 +563,16 @@ contract Minado is Owned {
     function testMint(
         bytes32 _digest,
         uint _challenge,
+        address _minter,
         uint _nonce,
         uint _target
-    ) public view returns (bool success) {
+    ) public pure returns (bool success) {
         /* Retrieve digest. */
-        bytes32 digest = getMintDigest(_challenge, _nonce);
+        bytes32 digest = getMintDigest(
+            _challenge,
+            _minter,
+            _nonce
+        );
 
         /* Validate digest. */
         // NOTE: Cast type to 256-bit integer
@@ -621,24 +638,18 @@ contract Minado is Owned {
         /* Retrieve value from Zer0net Db. */
         uint genPerAdjustment = _zer0netDb.getUint(adjustmentHash);
 
-        /* Validate adjustment value. */
-        if (genPerAdjustment == 0) {
-            genPerAdjustment = _DEFAULT_GENERATIONS_PER_ADJUSTMENT;
-        }
+        /* Calculate number of expected blocks per generation. */
+        uint expectedBlocksPerGen = genPerAdjustment.mul(BLOCKS_PER_GENERATION);
 
         /* Retrieve mining target. */
-        uint miningTarget = getMiningTarget(_token);
+        uint miningTarget = getTarget(_token);
 
-        /* Initialize the MAXIMUM value for the mining target? */
-        if (miningTarget == 0) {
-            miningTarget = _MAXIMUM_TARGET;
-        }
-
-        // if there were less eth blocks passed in time than expected
-        // NOTE: Miners are excavating too quickly.
-        if (blocksSinceLastAdjustment < genPerAdjustment) {
+        /* Validate the number of blocks passed; if there were less eth blocks
+         * passed in time than expected, then miners are excavating too quickly.
+         */
+        if (blocksSinceLastAdjustment < expectedBlocksPerGen) {
             // NOTE: This number will be an integer greater than 100.
-            uint excess_block_pct = genPerAdjustment.mul(100)
+            uint excess_block_pct = expectedBlocksPerGen.mul(100)
                 .div(blocksSinceLastAdjustment);
 
             /**
@@ -670,8 +681,8 @@ contract Minado is Owned {
             );
         } else {
             // NOTE: This number will be an integer greater than 100.
-            uint shortage_block_pct = (blocksSinceLastAdjustment.mul(100))
-                .div(genPerAdjustment);
+            uint shortage_block_pct = blocksSinceLastAdjustment.mul(100)
+                .div(expectedBlocksPerGen);
 
             /**
              * Extended Epoch Mining Percentage Extra
@@ -734,11 +745,12 @@ contract Minado is Owned {
      * ---------------
      *
      * First blocks honoring the start of Miss Piggy's celebration year:
-     *     - Mainnet: 7,175,716
-     *     - Ropsten: 4,956,268
+     *     - Mainnet :  7,175,716
+     *     - Ropsten :  4,956,268
+     *     - Kovan   : 10,283,438
      *
      * NOTE: Pulls value from db `minado.starting.block` using the
-     *       repspective networks.
+     *       respective networks.
      */
     function getStartingBlock() public view returns (uint startingBlock) {
         /* Set hash. */
@@ -749,6 +761,50 @@ contract Minado is Owned {
 
         /* Retrieve value from Zer0net Db. */
         startingBlock = _zer0netDb.getUint(hash);
+    }
+
+    /**
+     * Get minter's mintng address.
+     */
+    function getMinter() external view returns (address minter) {
+        /* Set hash. */
+        bytes32 hash = keccak256(abi.encodePacked(
+            _namespace,
+            '.minter'
+        ));
+
+        /* Retrieve value from Zer0net Db. */
+        minter = _zer0netDb.getAddress(hash);
+    }
+
+    /**
+     * Get generation details.
+     */
+    function getGeneration(
+        address _token
+    ) external view returns (
+        uint generation,
+        uint cycle
+    ) {
+        /* Set hash. */
+        bytes32 hash = keccak256(abi.encodePacked(
+            _namespace, '.',
+            _token,
+            '.generation'
+        ));
+
+        /* Retrieve value from Zer0net Db. */
+        generation = _zer0netDb.getUint(hash);
+
+        /* Set hash. */
+        hash = keccak256(abi.encodePacked(
+            _namespace, '.',
+            _token,
+            '.generations.per.adjustment'
+        ));
+
+        /* Retrieve value from Zer0net Db. */
+        cycle = _zer0netDb.getUint(hash);
     }
 
     /**
@@ -786,7 +842,7 @@ contract Minado is Owned {
     }
 
     /**
-     * Get Challenge
+     * Get (Mining) Challenge
      *
      * This is an integer representation of a recent ethereum block hash,
      * used to prevent pre-mining future blocks.
@@ -802,26 +858,29 @@ contract Minado is Owned {
         ));
 
         /* Retrieve value from Zer0net Db. */
-        challenge = _zer0netDb.getUint(hash);
+        // NOTE: Convert from bytes to integer.
+        challenge = uint(_bytesToBytes32(
+            _zer0netDb.getBytes(hash)
+        ));
     }
 
     /**
-     * Get Mining Difficulty
+     * Get (Mining) Difficulty
      *
      * The number of zeroes the digest of the PoW solution requires.
      * (auto adjusts)
      */
-    function getMiningDifficulty(
+    function getDifficulty(
         address _token
     ) public view returns (uint difficulty) {
         /* Caclulate difficulty. */
-        difficulty = _MAXIMUM_TARGET.div(getMiningTarget(_token));
+        difficulty = _MAXIMUM_TARGET.div(getTarget(_token));
     }
 
     /**
-     * Get Mining Target
+     * Get (Mining) Target
      */
-    function getMiningTarget(
+    function getTarget(
         address _token
     ) public view returns (uint target) {
         /* Set hash. */
@@ -833,27 +892,24 @@ contract Minado is Owned {
 
         /* Retrieve value from Zer0net Db. */
         target = _zer0netDb.getUint(hash);
-
-        /* Validate target initialization. */
-        // NOTE: We always default to MAXIMUM, for NEW tokens.
-        if (target < _MINIMUM_TARGET) {
-            target = _MAXIMUM_TARGET;
-        }
     }
 
     /**
      * Get Mint Digest
      *
-     * NOTE: Offers support for debugging mining software.
+     * The PoW must contain work that includes a recent
+     * ethereum block hash (challenge hash) and the
+     * msg.sender's address to prevent MITM attacks
      */
     function getMintDigest(
         uint _challenge,
+        address _minter,
         uint _nonce
-    ) public view returns (bytes32 digest) {
+    ) public pure returns (bytes32 digest) {
         /* Calculate digest. */
         digest = keccak256(abi.encodePacked(
             _challenge,
-            msg.sender,
+            _minter,
             _nonce
         ));
     }

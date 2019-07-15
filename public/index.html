@@ -5,7 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>Minado</title>
+    <title>Minado :. Crypto Mining & Forging</title>
+    <style>
+    .slashedZero {
+        font-family: monaco, Consolas, "Lucida Console", monospace;
+    }
+    </style>
+
+    <!-- Matomo (Analytics) -->
+    <!--
+    Matomo (formerly Piwik) is an open-source analytics platform used to:
+        1. Monitor the overall health of the Zer0net Web Gateway.
+        2. Provide insights into usage patterns.
+        3. Identify bugs and errors.
+
+    For more information, please visit https://matomo.org/
+    -->
+    <script type="text/javascript">
+    var _paq = _paq || []
+    _paq.push(['trackPageView'])
+    _paq.push(['enableLinkTracking']);
+
+    (function() {
+        var u='https://matomo.d14na.org/'
+        _paq.push(['setTrackerUrl', u+'piwik.php'])
+        _paq.push(['setSiteId', '3'])
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s)
+    })()
+    </script>
+    <!-- End Matomo (Analytics) -->
   </head>
 
   <!-- BODY options, add following classes to body to change options

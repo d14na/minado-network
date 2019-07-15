@@ -1,4 +1,10 @@
 module.exports = {
   lintOnSave: false,
-  runtimeCompiler: true
+  runtimeCompiler: true,
+  baseUrl: '',
+  outputDir: undefined,
+  assetsDir: undefined,
+  productionSourceMap: undefined,
+  parallel: undefined,
+  css: undefined
 }
