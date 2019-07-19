@@ -9,44 +9,54 @@ export default {
         // icon: 'fa fa-industry'
         icon: 'icon-energy'
     }, {
+        name: 'Payouts',
+        url: '/payouts',
+        icon: 'fa fa-usd'
+    // Community
+    }, {
+        title: true,
+        name: 'Community'
+    }, {
         name: 'InfinityPool',
-        url: '/pool',
+        url: '/infinitypool',
         icon: 'icon-layers'
     }, {
         name: 'InfinityWell',
         url: '/infinitywell',
         icon: 'icon-present',
-        variant: 'success',
+        // variant: 'info',
+        badge: {
+            variant: 'warning',
+            text: 'DEMO'
+        }
+    // Mineables
+    }, {
+        title: true,
+        name: 'Mineables'
+    }, {
+        name: '0xBitcoin Token',
+        url: '/explorer',
+        icon: 'icon-chart'
+    }, {
+        name: 'ZeroGold',
+        url: '/explorer',
+        icon: 'icon-chart',
+        // variant: 'warning',
         badge: {
             variant: 'warning',
             text: 'NEW'
         }
-    }, {
-        name: 'Payouts',
-        url: '/payouts',
-        icon: 'fa fa-usd'
-    }, {
-        name: 'Analytics',
-        url: '/charts',
-        icon: 'icon-chart'
-    }, {
-        name: 'Settings',
-        url: '/settings',
-        icon: 'icon-settings'
-    }, {
-        name: 'Help & Support',
-        url: '/support',
-        icon: 'icon-support'
+    // Extras
     }, {
         title: true,
-        name: 'Minado Extras'
+        name: 'Extras'
     }, {
         name: 'Profit Calculator',
-        url: '/calc',
+        url: '/calculator',
         icon: 'icon-calculator'
     }, {
-        name: 'Online Resources',
-        url: '/resources',
+        name: 'Mining AtoZ',
+        url: '/mining',
         icon: 'icon-info'
     }, {
         name: 'Minado.Mobile',
@@ -57,6 +67,7 @@ export default {
             rel: 'noopener',
             disabled: true
         }
+    // Developer Use ONLY
     }, {
         name: 'Dev Use ONLY',
         url: '/base',

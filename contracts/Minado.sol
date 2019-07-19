@@ -273,8 +273,7 @@ contract Minado is Owned {
      * NOTE: Bitcoin re-adjusts its difficulty every 2,016 generations,
      *       which occurs approx. every 14 days.
      */
-    // uint private _DEFAULT_GENERATIONS_PER_ADJUSTMENT = 144; // approx. 24hrs
-    uint private _DEFAULT_GENERATIONS_PER_ADJUSTMENT = 6; // approx. 1hr
+    uint private _DEFAULT_GENERATIONS_PER_ADJUSTMENT = 144; // approx. 24hrs
 
     event Claim(
         address owner,
@@ -638,8 +637,8 @@ contract Minado is Owned {
         /* Retrieve value from Zer0net Db. */
         uint genPerAdjustment = _zer0netDb.getUint(adjustmentHash);
 
-        /* Calculate number of expected blocks per generation. */
-        uint expectedBlocksPerGen = genPerAdjustment.mul(BLOCKS_PER_GENERATION);
+        /* Calculate number of expected blocks per adjustment. */
+        uint expectedBlocksPerAdjustment = genPerAdjustment.mul(BLOCKS_PER_GENERATION);
 
         /* Retrieve mining target. */
         uint miningTarget = getTarget(_token);
@@ -647,24 +646,24 @@ contract Minado is Owned {
         /* Validate the number of blocks passed; if there were less eth blocks
          * passed in time than expected, then miners are excavating too quickly.
          */
-        if (blocksSinceLastAdjustment < expectedBlocksPerGen) {
-            // NOTE: This number will be an integer greater than 100.
-            uint excess_block_pct = expectedBlocksPerGen.mul(100)
+        if (blocksSinceLastAdjustment < expectedBlocksPerAdjustment) {
+            // NOTE: This number will be an integer greater than 10000.
+            uint excess_block_pct = expectedBlocksPerAdjustment.mul(10000)
                 .div(blocksSinceLastAdjustment);
 
             /**
              * Excess Block Percentage Extra
              *
              * For example:
-             *     If there were 5% more blocks mined than expected, then this is 5.
-             *     If there were 100% more blocks mined than expected, then this is 100.
+             *     If there were 5% more blocks mined than expected, then this is 500.
+             *     If there were 25% more blocks mined than expected, then this is 2500.
              */
-            uint excess_block_pct_extra = excess_block_pct.sub(100);
+            uint excess_block_pct_extra = excess_block_pct.sub(10000);
 
-            /* Set a maximum difficulty change of 100%. */
+            /* Set a maximum difficulty INCREASE of 50%. */
             // NOTE: By default, this is within a 24hr period.
-            if (excess_block_pct_extra > 100) {
-                excess_block_pct_extra = 100;
+            if (excess_block_pct_extra > 5000) {
+                excess_block_pct_extra = 5000;
             }
 
             /**
@@ -677,21 +676,23 @@ contract Minado is Owned {
                 /* Calculate difficulty difference. */
                 miningTarget
                     .mul(excess_block_pct_extra)
-                    .div(100)
+                    .div(10000)
             );
         } else {
-            // NOTE: This number will be an integer greater than 100.
-            uint shortage_block_pct = blocksSinceLastAdjustment.mul(100)
-                .div(expectedBlocksPerGen);
+            // NOTE: This number will be an integer greater than 10000.
+            uint shortage_block_pct = blocksSinceLastAdjustment.mul(10000)
+                .div(expectedBlocksPerAdjustment);
 
             /**
-             * Extended Epoch Mining Percentage Extra
+             * Shortage Block Percentage Extra
              *
              * For example:
-             *     If it took 5% longer to mine than expected, then this is 5.
-             *     If it took 25% longer to mine than expected, then this is 25.
+             *     If it took 5% longer to mine than expected, then this is 500.
+             *     If it took 25% longer to mine than expected, then this is 2500.
              */
-            uint ext_epoch_mining_pct_extra = shortage_block_pct.sub(100);
+            uint shortage_block_pct_extra = shortage_block_pct.sub(10000);
+
+            // NOTE: There is NO limit on the amount of difficulty DECREASE.
 
             /**
              * Reset the Mining Target
@@ -701,8 +702,8 @@ contract Minado is Owned {
              */
             miningTarget = miningTarget.add(
                 miningTarget
-                    .mul(ext_epoch_mining_pct_extra)
-                    .div(100)
+                    .mul(shortage_block_pct_extra)
+                    .div(10000)
             );
         }
 

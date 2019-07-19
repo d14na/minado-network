@@ -9,17 +9,15 @@ const Dashboard = () => import('@/views/Dashboard')
 
 const Colors = () => import('@/views/theme/Colors')
 
-const Charts = () => import('@/views/Charts')
+const Explorer = () => import('@/views/Explorer')
 const Widgets = () => import('@/views/Widgets')
 
-const Calc = () => import('@/views/Calc')
+const Calculator = () => import('@/views/Calculator')
+const InfinityPool = () => import('@/views/InfinityPool')
 const InfinityWell = () => import('@/views/InfinityWell')
 const Ministo = () => import('@/views/Ministo')
 const Payouts = () => import('@/views/Payouts')
-const Pool = () => import('@/views/Pool')
-const Resources = () => import('@/views/Resources')
-const Settings = () => import('@/views/Settings')
-const Support = () => import('@/views/Support')
+const MiningAtoZ = () => import('@/views/MiningAtoZ')
 
 // Views - Components
 const Cards = () => import('@/views/base/Cards')
@@ -73,37 +71,33 @@ export default new Router({
             name: 'Dashboard',
             component: Dashboard
         }, {
-            path: 'calc',
-            name: 'Calc',
-            component: Calc
+            path: 'ministo',
+            name: 'Ministo',
+            component: Ministo
+        }, {
+            path: 'infinitypool',
+            name: 'InfinityPool',
+            component: InfinityPool
         }, {
             path: 'infinitywell',
             name: 'InfinityWell',
             component: InfinityWell
         }, {
-            path: 'ministo',
-            name: 'Ministo',
-            component: Ministo
-        }, {
-            path: 'pool',
-            name: 'Pool',
-            component: Pool
-        }, {
             path: 'payouts',
             name: 'Payouts',
             component: Payouts
         }, {
-            path: 'resources',
-            name: 'Resources',
-            component: Resources
+            path: 'explorer',
+            name: 'Explorer',
+            component: Explorer
         }, {
-            path: 'settings',
-            name: 'Settings',
-            component: Settings
+            path: 'calculator',
+            name: 'Calculator',
+            component: Calculator
         }, {
-            path: 'support',
-            name: 'Support',
-            component: Support
+            path: 'mining',
+            name: 'Mining AtoZ',
+            component: MiningAtoZ
         }, {
             path: 'theme',
             redirect: '/theme/colors',
@@ -116,10 +110,6 @@ export default new Router({
                 name: 'Colors',
                 component: Colors
             }]
-        }, {
-            path: 'charts',
-            name: 'Charts',
-            component: Charts
         }, {
             path: 'widgets',
             name: 'Widgets',

@@ -211,7 +211,7 @@
 </template>
 
 <script>
-// import ethers from 'ethers'
+/* Initialize module. */
 const ethers = require('ethers')
 
 export default {
