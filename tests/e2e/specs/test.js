@@ -32,7 +32,7 @@ module.exports = {
       .assert.elementPresent('.app-body > .sidebar > .sidebar-minimizer')
       .assert.elementPresent('.app-footer')
       .assert.containsText('.app-footer > div > span', 'creativeLabs')
-      .assert.containsText('.app-footer > div.ml-auto > span', 'Powered by')
+      .assert.containsText('.app-footer > div.ml-auto > span', 'Built with')
       .assert.elementCount('button', 10)
       .resizeWindow(1024, 800)
       .pause(500)

@@ -1,6 +1,23 @@
 <template>
     <div class="animated fadeIn">
         <b-row>
+          <b-col cols="12" lg="6">
+            <b-card no-header>
+              <template slot="header">
+                User id:  {{ $route.params.id }}
+              </template>
+              <b-table striped small fixed responsive="sm" :items="items($route.params.id)" :fields="fields">
+                <template slot="value" slot-scope="data">
+                  <strong>{{data.item.value}}</strong>
+                </template>
+              </b-table>
+              <template slot="footer">
+                <b-button @click="goBack">Back</b-button>
+              </template>
+            </b-card>
+          </b-col>
+        </b-row>
+        <b-row>
             <b-col md="6">
                 <p>
                     Introduction to Mining and Profit Calculations
@@ -162,8 +179,9 @@
 </template>
 
 <script>
-// import ethers from 'ethers'
 import SockJS from 'sockjs-client'
+
+import usersData from './UsersData'
 
 const ethers = require('ethers')
 
@@ -171,11 +189,26 @@ const ethers = require('ethers')
 const MINADO_NETWORK_URL = 'http://asia.minado.network'
 
 export default {
+    props: {
+      caption: {
+        type: String,
+        default: 'User id'
+      },
+    },
     data: () => ({
         ws: null, // WebSocket
 
-        selected: [], // Must be an array reference!
-        show: true
+        // selected: [], // Must be an array reference!
+        // show: true,
+        items: (id) => {
+          const user = usersData.find( user => user.id.toString() === id)
+          const userDetails = user ? Object.entries(user) : [['id', 'Not found']]
+          return userDetails.map(([key, value]) => {return {key: key, value: value}})
+        },
+        fields: [
+          {key: 'key'},
+          {key: 'value'},
+        ],
     }),
     methods: {
         init () {
@@ -230,6 +263,9 @@ export default {
             let provider = new ethers.providers.Web3Provider(web3.currentProvider)
 
             console.log('PROVIDER', provider)
+        },
+        goBack() {
+            this.$router.go(-1)
         }
     },
     mounted: async function () {

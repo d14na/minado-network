@@ -54,7 +54,7 @@
             </div>
 
             <div class="ml-auto">
-                <span class="mr-1">Powered by</span>
+                <span class="mr-1">Built with</span>
                 <a href="https://coreui.io" target="_blank">CoreUI for Vue</a>
             </div>
         </TheFooter>

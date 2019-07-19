@@ -9,13 +9,11 @@ const Dashboard = () => import('@/views/Dashboard')
 
 const Colors = () => import('@/views/theme/Colors')
 
-const Explorer = () => import('@/views/Explorer')
 const Widgets = () => import('@/views/Widgets')
 
 const Calculator = () => import('@/views/Calculator')
 const InfinityPool = () => import('@/views/InfinityPool')
 const InfinityWell = () => import('@/views/InfinityWell')
-const Ministo = () => import('@/views/Ministo')
 const Payouts = () => import('@/views/Payouts')
 const MiningAtoZ = () => import('@/views/MiningAtoZ')
 
@@ -52,8 +50,13 @@ const Login = () => import('@/views/pages/Login')
 const Register = () => import('@/views/pages/Register')
 
 // Users
-const Users = () => import('@/views/users/Users')
-const User = () => import('@/views/users/User')
+const Ministo = () => import('@/views/ministo/Users')
+const Users = () => import('@/views/ministo/Users')
+const User = () => import('@/views/ministo/User')
+
+// Tokens
+const _0GOLD = () => import('@/views/tokens/_0GOLD')
+const _0xBTC = () => import('@/views/tokens/_0xBTC')
 
 Vue.use(Router)
 
@@ -87,9 +90,13 @@ export default new Router({
             name: 'Payouts',
             component: Payouts
         }, {
-            path: 'explorer',
-            name: 'Explorer',
-            component: Explorer
+            path: '0GOLD',
+            name: 'ZeroGold',
+            component: _0GOLD
+        }, {
+            path: '0xBTC',
+            name: '0xBitcoin Token',
+            component: _0xBTC
         }, {
             path: 'calculator',
             name: 'Calculator',
@@ -115,8 +122,8 @@ export default new Router({
             name: 'Widgets',
             component: Widgets
         }, {
-            path: 'users',
-            meta: { label: 'Users'},
+            path: 'm',
+            meta: { label: 'Ministo'},
             component: {
                 render (c) { return c('router-view') }
             },
@@ -125,8 +132,8 @@ export default new Router({
                 component: Users,
             }, {
                 path: ':id',
-                meta: { label: 'User Details'},
-                name: 'User',
+                meta: { label: 'Ministo Dashboard'},
+                name: 'Ministo',
                 component: User,
             }]
         }, {

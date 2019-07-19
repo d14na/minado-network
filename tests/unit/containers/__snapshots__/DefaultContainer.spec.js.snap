@@ -13,7 +13,7 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
       display="md"
       mobile="true"
     />
-     
+
     <b-link-stub
       activeclass="active"
       class="navbar-brand"
@@ -30,7 +30,7 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
         src="img/brand/logo.svg"
         width="89"
       />
-       
+
       <img
         alt="CoreUI Logo"
         class="navbar-brand-minimized"
@@ -39,13 +39,13 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
         width="30"
       />
     </b-link-stub>
-     
+
     <sidebartoggler-stub
       class="d-md-down-none"
       defaultopen="true"
       display="lg"
     />
-     
+
     <b-navbar-nav-stub
       class="d-md-down-none"
       tag="ul"
@@ -61,7 +61,7 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
       >
         Dashboard
       </b-nav-item-stub>
-       
+
       <b-nav-item-stub
         activeclass="active"
         class="px-3"
@@ -74,7 +74,7 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
       >
         Users
       </b-nav-item-stub>
-       
+
       <b-nav-item-stub
         activeclass="active"
         class="px-3"
@@ -86,7 +86,7 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
         Settings
       </b-nav-item-stub>
     </b-navbar-nav-stub>
-     
+
     <b-navbar-nav-stub
       class="ml-auto"
       tag="ul"
@@ -102,7 +102,7 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
         <i
           class="icon-bell"
         />
-         
+
         <b-badge-stub
           activeclass="active"
           event="click"
@@ -116,7 +116,7 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
           5
         </b-badge-stub>
       </b-nav-item-stub>
-       
+
       <b-nav-item-stub
         activeclass="active"
         class="d-md-down-none"
@@ -129,7 +129,7 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
           class="icon-list"
         />
       </b-nav-item-stub>
-       
+
       <b-nav-item-stub
         activeclass="active"
         class="d-md-down-none"
@@ -142,16 +142,16 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
           class="icon-location-pin"
         />
       </b-nav-item-stub>
-       
+
       <defaultheaderdropdownaccnt-stub />
     </b-navbar-nav-stub>
-     
+
     <asidetoggler-stub
       class="d-none d-lg-block"
       display="lg"
     />
   </appheader-stub>
-   
+
   <div
     class="app-body"
   >
@@ -159,25 +159,25 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
       fixed="true"
     >
       <sidebarheader-stub />
-       
+
       <sidebarform-stub />
-       
+
       <sidebarnav-stub
         navitems="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
       />
-       
+
       <sidebarfooter-stub />
-       
+
       <sidebarminimizer-stub />
     </appsidebar-stub>
-     
+
     <main
       class="main"
     >
       <breadcrumb-stub
         list=""
       />
-       
+
       <div
         class="container-fluid"
       >
@@ -186,7 +186,7 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
         />
       </div>
     </main>
-     
+
     <appaside-stub
       display=""
       fixed="true"
@@ -195,7 +195,7 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
       <defaultaside-stub />
     </appaside-stub>
   </div>
-   
+
   <thefooter-stub>
     <div>
       <a
@@ -203,23 +203,23 @@ exports[`DefaultContainer.vue renders correctly 1`] = `
       >
         CoreUI
       </a>
-       
+
       <span
         class="ml-1"
       >
         © 2018 creativeLabs.
       </span>
     </div>
-     
+
     <div
       class="ml-auto"
     >
       <span
         class="mr-1"
       >
-        Powered by
+        Built with
       </span>
-       
+
       <a
         href="https://coreui.io"
       >

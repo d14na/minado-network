@@ -35,11 +35,11 @@ export default {
         name: 'Mineables'
     }, {
         name: '0xBitcoin Token',
-        url: '/explorer',
+        url: '/0xBTC',
         icon: 'icon-chart'
     }, {
         name: 'ZeroGold',
-        url: '/explorer',
+        url: '/0GOLD',
         icon: 'icon-chart',
         // variant: 'warning',
         badge: {
@@ -58,15 +58,6 @@ export default {
         name: 'Mining AtoZ',
         url: '/mining',
         icon: 'icon-info'
-    }, {
-        name: 'Minado.Mobile',
-        url: 'https://minado.app',
-        icon: 'icon-screen-smartphone',
-        attributes: {
-            target: '_blank',
-            rel: 'noopener',
-            disabled: true
-        }
     // Developer Use ONLY
     }, {
         name: 'Dev Use ONLY',

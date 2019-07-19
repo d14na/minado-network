@@ -10,7 +10,7 @@
 
 <script>
 import { shuffleArray } from '@/shared/utils'
-import cTable from './base/Table.vue'
+import cTable from '../base/Table.vue'
 
 const someData = () => shuffleArray([
   {username: 'Samppa Nori', registered: '2012/01/01', role: 'Member', status: 'Active', _rowVariant: 'success'},
