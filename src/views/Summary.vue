@@ -44,13 +44,11 @@
                             <template slot="button-content">
                                 <i class="icon-settings"></i>
                             </template>
-                            <b-dropdown-item>Increase STAEK</b-dropdown-item>
-                            <b-dropdown-item>Decrease STAEK</b-dropdown-item>
-                            <b-dropdown-item disabled>Zero₵a¢he IN</b-dropdown-item>
-                            <b-dropdown-item disabled>Zero₵a¢he OUT</b-dropdown-item>
+                            <b-dropdown-item>Show All</b-dropdown-item>
+                            <b-dropdown-item disabled>Show History</b-dropdown-item>
                         </b-dropdown>
-                        <h4 class="mb-0">10k <small>(8.92%)</small></h4>
-                        <p>ZeroGold @STAEK</p>
+                        <h4 class="mb-0">10 <small>(+8.92%)</small></h4>
+                        <p>New Mineables</p>
                     </b-card-body>
                     <card-line3-chart-example chartId="card-chart-03" class="chart-wrapper" style="height:70px;" height="70"/>
                 </b-card>
@@ -124,91 +122,13 @@
         </b-card>
 
         <b-row>
-            <b-col sm="6" lg="3">
-                <div class="brand-card">
-                    <div class="brand-card-header bg-facebook">
-                        <i class="fa fa-facebook"></i>
-                        <div class="chart-wrapper">
-                            <social-box-chart-example chartId="box-chart-01" :data="[65, 59, 84, 84, 51, 55, 40]" />
-                        </div>
-                    </div>
-                    <div class="brand-card-body">
-                        <div>
-                            <div class="text-value">89k</div>
-                            <div class="text-uppercase text-muted small">friends</div>
-                        </div>
-                        <div>
-                            <div class="text-value">459</div>
-                            <div class="text-uppercase text-muted small">feeds</div>
-                        </div>
-                    </div>
-                </div>
-            </b-col>
-            <b-col sm="6" lg="3">
-                <div class="brand-card">
-                    <div class="brand-card-header bg-twitter">
-                        <i class="fa fa-twitter"></i>
-                        <div class="chart-wrapper">
-                            <social-box-chart-example chartId="box-chart-02" :data="[1, 13, 9, 17, 34, 41, 38]" />
-                        </div>
-                    </div>
-                    <div class="brand-card-body">
-                        <div>
-                            <div class="text-value">973k</div>
-                            <div class="text-uppercase text-muted small">followers</div>
-                        </div>
-                        <div>
-                            <div class="text-value">1.792</div>
-                            <div class="text-uppercase text-muted small">tweets</div>
-                        </div>
-                    </div>
-                </div>
-            </b-col>
-            <b-col sm="6" lg="3">
-                <div class="brand-card">
-                    <div class="brand-card-header bg-linkedin">
-                        <i class="fa fa-linkedin"></i>
-                        <div class="chart-wrapper">
-                            <social-box-chart-example chartId="box-chart-03" :data="[78, 81, 80, 45, 34, 12, 40]" />
-                        </div>
-                    </div>
-                    <div class="brand-card-body">
-                        <div>
-                            <div class="text-value">500+</div>
-                            <div class="text-uppercase text-muted small">contacts</div>
-                        </div>
-                        <div>
-                            <div class="text-value">292</div>
-                            <div class="text-uppercase text-muted small">feeds</div>
-                        </div>
-                    </div>
-                </div>
-            </b-col>
-            <b-col sm="6" lg="3">
-                <div class="brand-card">
-                    <div class="brand-card-header bg-google-plus">
-                        <i class="fa fa-google-plus"></i>
-                        <div class="chart-wrapper">
-                            <social-box-chart-example chartId="box-chart-04" :data="[35, 23, 56, 22, 97, 23, 64]" />
-                        </div>
-                    </div>
-                    <div class="brand-card-body">
-                        <div>
-                            <div class="text-value">894</div>
-                            <div class="text-uppercase text-muted small">followers</div>
-                        </div>
-                        <div>
-                            <div class="text-value">92</div>
-                            <div class="text-uppercase text-muted small">circles</div>
-                        </div>
-                    </div>
-                </div>
-            </b-col>
+            something here...
+            <hr />
         </b-row>
 
         <b-row>
             <b-col md="12">
-                <b-card header="Traffic &amp; Sales">
+                <b-card header="Pool Stats">
                     <b-row>
                         <b-col sm="12" lg="6">
                             <b-row>

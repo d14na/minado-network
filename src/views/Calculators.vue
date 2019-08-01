@@ -1,6 +1,40 @@
 <template>
     <div class="animated fadeIn">
         <b-row>
+            <b-col sm="12" lg="6">
+                <b-card no-body class="bg-primary">
+                    <b-card-body class="pb-0">
+                        <b-dropdown class="float-right" variant="transparent p-0" right>
+                            <template slot="button-content">
+                                <i class="icon-settings"></i>
+                            </template>
+                            <b-dropdown-item>Show Next Payout</b-dropdown-item>
+                            <b-dropdown-item>Show Ready for Transfer</b-dropdown-item>
+                        </b-dropdown>
+                        <h4 class="mb-0">US$129.34</h4>
+                        <p>is ready for payout</p>
+                    </b-card-body>
+                    <card-line3-chart-example chartId="card-chart-03" class="chart-wrapper" style="height:70px;" height="70"/>
+                </b-card>
+            </b-col>
+
+            <b-col cols="12" md="6">
+                <b-alert show variant="info">
+                    <h4 class="alert-heading">Well done!</h4>
+                    <p>
+                        Aww yeah, you successfully read this important alert message.
+                        This example text is going to run a bit longer so that you can see
+                        how spacing within an alert works with this kind of content.
+                    </p>
+                    <hr>
+                    <p class="mb-0">
+                        Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
+                    </p>
+                </b-alert>
+            </b-col>
+        </b-row>
+
+        <b-row>
             <b-col md="6">
                 <h2>
                     Calculators

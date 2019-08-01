@@ -5,17 +5,18 @@ import Router from 'vue-router'
 const DefaultContainer = () => import('@/containers/DefaultContainer')
 
 // Views
-const Dashboard = () => import('@/views/Dashboard')
+const Summary = () => import('@/views/Summary')
 
 const Colors = () => import('@/views/theme/Colors')
 
 const Widgets = () => import('@/views/Widgets')
 
-const Calculator = () => import('@/views/Calculator')
+const Calculators = () => import('@/views/Calculators')
 const InfinityPool = () => import('@/views/InfinityPool')
 const InfinityWell = () => import('@/views/InfinityWell')
+const Faucets = () => import('@/views/Faucets')
 const Payouts = () => import('@/views/Payouts')
-const MiningAtoZ = () => import('@/views/MiningAtoZ')
+const Notebook = () => import('@/views/faq/Notebook')
 
 // Views - Components
 const Cards = () => import('@/views/base/Cards')
@@ -54,6 +55,10 @@ const Ministo = () => import('@/views/ministo/Users')
 const Users = () => import('@/views/ministo/Users')
 const User = () => import('@/views/ministo/User')
 
+// FAQ
+// const Questions = () => import('@/views/faq/Questions')
+const Answer = () => import('@/views/faq/Answer')
+
 // Tokens
 const _0GOLD = () => import('@/views/tokens/_0GOLD')
 const _0xBTC = () => import('@/views/tokens/_0xBTC')
@@ -66,13 +71,13 @@ export default new Router({
     scrollBehavior: () => ({ y: 0 }),
     routes: [{
         path: '/',
-        redirect: '/dashboard',
+        redirect: '/summary',
         name: 'Minado',
         component: DefaultContainer,
         children: [{
-            path: 'dashboard',
-            name: 'Dashboard',
-            component: Dashboard
+            path: 'summary',
+            name: 'Summary',
+            component: Summary
         }, {
             path: 'ministo',
             name: 'Ministo',
@@ -86,6 +91,10 @@ export default new Router({
             name: 'InfinityWell',
             component: InfinityWell
         }, {
+            path: 'faucets',
+            name: 'Faucets',
+            component: Faucets
+        }, {
             path: 'payouts',
             name: 'Payouts',
             component: Payouts
@@ -98,13 +107,41 @@ export default new Router({
             name: '0xBitcoin Token',
             component: _0xBTC
         }, {
-            path: 'calculator',
-            name: 'Calculator',
-            component: Calculator
+            path: 'calculators',
+            name: 'Calculators',
+            component: Calculators
         }, {
-            path: 'mining',
-            name: 'Mining AtoZ',
-            component: MiningAtoZ
+            path: 'notebook',
+            meta: { label: `Notebook`},
+            component: {
+                render (c) { return c('router-view') }
+            },
+            children: [{
+                path: '',
+                component: Notebook,
+            }, {
+                path: ':id',
+                meta: { label: 'Entry Detail'},
+                name: 'Answer',
+                component: Answer,
+            }]
+        }, {
+            path: 'tag',
+            meta: { label: 'Ministo'},
+            component: {
+                render (c) { return c('router-view') }
+            },
+            children: [{
+                path: '',
+                component: Users,
+            }, {
+                path: ':id',
+                meta: { label: 'Ministo Dashboard'},
+                name: 'Ministo',
+                component: User,
+            }]
+
+        // DEVELOPER ONLY
         }, {
             path: 'theme',
             redirect: '/theme/colors',
@@ -121,21 +158,6 @@ export default new Router({
             path: 'widgets',
             name: 'Widgets',
             component: Widgets
-        }, {
-            path: 'm',
-            meta: { label: 'Ministo'},
-            component: {
-                render (c) { return c('router-view') }
-            },
-            children: [{
-                path: '',
-                component: Users,
-            }, {
-                path: ':id',
-                meta: { label: 'Ministo Dashboard'},
-                name: 'Ministo',
-                component: User,
-            }]
         }, {
             path: 'base',
             redirect: '/base/cards',

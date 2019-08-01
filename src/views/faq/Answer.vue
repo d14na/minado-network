@@ -1,5 +1,6 @@
 <template>
     <div class="animated fadeIn">
+        <h1>we shoudl put some actual detail here</h1>
         <b-row>
           <b-col cols="12" lg="6">
             <b-card no-header>
@@ -57,7 +58,6 @@
                     <div slot="footer">
                         <b-button type="submit" size="sm" variant="success" @click="startMining"><i class="fa fa-dot-circle-o"></i> Start Mining</b-button>
                         <b-button type="reset" size="sm" variant="danger" @click="stopMining"><i class="fa fa-ban"></i> Stop Mining</b-button>
-                        <b-button type="reset" size="sm" variant="warning" @click="cudaTest"><i class="fa fa-ban"></i> CUDA Test</b-button>
                     </div>
                 </b-card>
             </b-col>
@@ -182,7 +182,7 @@
 <script>
 import SockJS from 'sockjs-client'
 
-import usersData from './UsersData'
+import usersData from './FAQData'
 
 const ethers = require('ethers')
 
@@ -260,15 +260,10 @@ export default {
             }
 
             this.ws.send(JSON.stringify(pkg))
-        },
-        cudaTest () {
-            console.log('cuda test')
 
-            const pkg = {
-                action: 'cuda_test'
-            }
+            let provider = new ethers.providers.Web3Provider(web3.currentProvider)
 
-            this.ws.send(JSON.stringify(pkg))
+            console.log('PROVIDER', provider)
         },
         goBack() {
             this.$router.go(-1)

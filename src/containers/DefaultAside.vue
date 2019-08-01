@@ -222,6 +222,7 @@
             </div>
         </b-tab>
 
+        <!-- SETTINGS -->
         <b-tab>
             <template slot="title">
                 <i class='icon-settings'></i>
@@ -229,43 +230,45 @@
 
             <div class="p-3">
                 <h6>Settings</h6>
+
+                <div class="aside-options">
+                    <div class="clearfix mt-3">
+                        <small><b>Auto Start Ministo</b></small>
+                        <c-switch color="success" label variant="pill" size="sm" class="float-right" checked />
+                    </div>
+                    <div>
+                        <small class="text-muted">
+                            Automatically activate your Ministo, after they connect to the network.
+                        </small>
+                    </div>
+                </div>
+
                 <div class="aside-options">
                     <div class="clearfix mt-4">
-                        <small><b>Option 1</b></small>
-                        <c-switch color="success" label variant="pill" size="sm" class="float-right" checked />
+                        <small><b>Auto Profit Seeker</b></small>
+                        <c-switch color="success" label variant="pill" size="sm" class="float-right" disabled />
                     </div>
                     <div>
-                        <small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+                        <small class="text-muted">
+                            Automatically switches your Ministo to the MOST profitable mineable tokens.
+                            <br /><small class="text-danger">FOR RESIDENTS ONLY</small>
+                        </small>
                     </div>
                 </div>
+
                 <div class="aside-options">
                     <div class="clearfix mt-3">
-                        <small><b>Option 2</b></small>
-                        <c-switch color="success" label variant="pill" size="sm" class="float-right" />
+                        <small><b>Kovan Testnet</b></small>
+                        <c-switch color="success" label variant="pill" size="sm" class="float-right" disabled />
                     </div>
                     <div>
-                        <small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
-                    </div>
-                </div>
-                <div class="aside-options">
-                    <div class="clearfix mt-3">
-                        <small><b>Option 3</b></small>
-                        <c-switch color="success" label variant="pill" size="sm" class="float-right" disabled defaultChecked/>
-                    </div>
-                    <div>
-                        <small class="text-muted">Disabled option.</small>
-                    </div>
-                </div>
-                <div class="aside-options">
-                    <div class="clearfix mt-3">
-                        <small><b>Option 4</b></small>
-                        <c-switch color="success" label variant="pill" size="sm" class="float-right" checked />
+                        <small class="text-muted">This is an ADANCED feature for blockchain developers ONLY.</small>
                     </div>
                 </div>
 
                 <hr>
 
-                <h6>System Utilization</h6>
+                <h6>Your Mining Footprint</h6>
                 <div class="text-uppercase mb-1 mt-4">
                     <small><b>CPU Usage</b></small>
                 </div>
@@ -297,7 +300,8 @@
             <div class="p-3">
                 <h6>Signout</h6>
 
-                confirm signout
+                Your are currently connected using:<br />
+                [ ETHEREUM ACCOUNT ADDRESS ]
             </div>
         </b-tab>
     </b-tabs>

@@ -1,7 +1,7 @@
 export default {
     items: [{
-        name: 'Dashboard',
-        url: '/dashboard',
+        name: 'Summary',
+        url: '/summary',
         icon: 'icon-grid'
     }, {
         name: 'Ministo',
@@ -29,6 +29,10 @@ export default {
             variant: 'warning',
             text: 'DEMO'
         }
+    }, {
+        name: 'Faucets',
+        url: '/faucets',
+        icon: 'icon-present'
     // Mineables
     }, {
         title: true,
@@ -51,12 +55,12 @@ export default {
         title: true,
         name: 'Extras'
     }, {
-        name: 'Profit Calculator',
-        url: '/calculator',
+        name: 'Calculators',
+        url: '/calculators',
         icon: 'icon-calculator'
     }, {
-        name: 'Mining AtoZ',
-        url: '/mining',
+        name: `Notebook`,
+        url: '/notebook',
         icon: 'icon-info'
     // Developer Use ONLY
     }, {

@@ -3,7 +3,7 @@ const usersData = [
   {id: '0fP5o70ub9', name: 'Samppa Nori', registered: '2018/01/01', role: 'Member', status: 'Active'},
   {id: 'mNLFUpKLp7', name: 'Estavan Lykos', registered: '2018/02/01', role: 'Staff', status: 'Banned'},
   {id: 'kDEKcNbG4t', name: 'Chetan Mohamed', registered: '2018/02/01', role: 'Admin', status: 'Inactive'},
-  {id: '2qxLiq2C4V', name: 'Londynn Lee', registered: '2018/03/01', role: 'Member', status: 'Pending'},
+  {id: 'lCanDBcal2', name: 'Derick Maximinus', registered: '2018/03/01', role: 'Member', status: 'Pending'},
   {id: 'q22McgN036', name: 'Friderik Dávid', registered: '2018/01/21', role: 'Staff', status: 'Active'},
   {id: '1bkEiNgwgL', name: 'Yiorgos Avraamu', registered: '2018/01/01', role: 'Member', status: 'Active'},
   {id: 'of2Cpj5PTb', name: 'Avram Tarasios', registered: '2018/02/01', role: 'Staff', status: 'Banned'},
