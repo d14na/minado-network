@@ -14,7 +14,7 @@ const Widgets = () => import('@/views/Widgets')
 const Calculators = () => import('@/views/Calculators')
 const InfinityPool = () => import('@/views/InfinityPool')
 const InfinityWell = () => import('@/views/InfinityWell')
-const Faucets = () => import('@/views/Faucets')
+// const Rewards = () => import('@/views/Rewards')
 const Payouts = () => import('@/views/Payouts')
 const Notebook = () => import('@/views/faq/Notebook')
 
@@ -44,9 +44,11 @@ const Alerts = () => import('@/views/notifications/Alerts')
 const Modals = () => import('@/views/notifications/Modals')
 
 // Users
-const Foreman = () => import('@/views/foreman/Users')
-const Users = () => import('@/views/foreman/Users')
-const User = () => import('@/views/foreman/User')
+const Foremen = () => import('@/views/foremen/Users')
+const Users = () => import('@/views/foremen/Users')
+const User = () => import('@/views/foremen/User')
+const Rewards = () => import('@/views/rewards/Users')
+const Reward = () => import('@/views/rewards/User')
 
 // FAQ
 // const Questions = () => import('@/views/faq/Questions')
@@ -65,16 +67,24 @@ export default new Router({
     routes: [{
         path: '/',
         redirect: '/home',
-        name: 'Home',
+        name: 'My Home',
         component: DefaultContainer,
         children: [{
             path: 'home',
             name: 'Home',
             component: Home
         }, {
-            path: 'foreman',
-            name: 'Foreman',
-            component: Foreman
+            path: 'foremen',
+            name: 'My Foremen',
+            component: Foremen
+        }, {
+            path: 'payouts',
+            name: 'My Payouts',
+            component: Payouts
+        }, {
+            path: 'rewards',
+            name: 'Rewards',
+            component: Rewards
         }, {
             path: 'infinitypool',
             name: 'InfinityPool',
@@ -83,14 +93,6 @@ export default new Router({
             path: 'infinitywell',
             name: 'InfinityWell',
             component: InfinityWell
-        }, {
-            path: 'faucets',
-            name: 'Faucets',
-            component: Faucets
-        }, {
-            path: 'payouts',
-            name: 'Payouts',
-            component: Payouts
         }, {
             path: '0GOLD',
             name: 'ZeroGold',
@@ -120,7 +122,7 @@ export default new Router({
             }]
         }, {
             path: 'tag',
-            meta: { label: 'Foreman'},
+            meta: { label: 'Foremen'},
             component: {
                 render (c) { return c('router-view') }
             },
@@ -129,9 +131,24 @@ export default new Router({
                 component: Users,
             }, {
                 path: ':id',
-                meta: { label: 'Foreman Dashboard'},
-                name: 'Foreman',
+                meta: { label: 'Foremen Dashboard'},
+                name: 'Foremen',
                 component: User,
+            }]
+        }, {
+            path: 'reward',
+            meta: { label: 'Rewards'},
+            component: {
+                render (c) { return c('router-view') }
+            },
+            children: [{
+                path: '',
+                component: Rewards,
+            }, {
+                path: ':id',
+                meta: { label: 'Reward Dashboard'},
+                name: 'Reward',
+                component: Reward,
             }]
 
         // DEVELOPER ONLY

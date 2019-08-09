@@ -1,0 +1,31 @@
+const usersData = [
+  {id: 'rQNyh908ku', name: 'John Doe', registered: '2018/01/01', role: 'Guest', status: 'Pending'},
+  {id: '0fP5o70ub9', name: 'Samppa Nori', registered: '2018/01/01', role: 'Member', status: 'Active'},
+  {id: 'mNLFUpKLp7', name: 'Estavan Lykos', registered: '2018/02/01', role: 'Staff', status: 'Banned'},
+  {id: 'kDEKcNbG4t', name: 'Chetan Mohamed', registered: '2018/02/01', role: 'Admin', status: 'Inactive'},
+  {id: '2qxLiq2C4V', name: 'Londynn Lee', registered: '2018/03/01', role: 'Member', status: 'Pending'},
+  {id: 'q22McgN036', name: 'Friderik Dávid', registered: '2018/01/21', role: 'Staff', status: 'Active'},
+  {id: '1bkEiNgwgL', name: 'Yiorgos Avraamu', registered: '2018/01/01', role: 'Member', status: 'Active'},
+  {id: 'of2Cpj5PTb', name: 'Avram Tarasios', registered: '2018/02/01', role: 'Staff', status: 'Banned'},
+  {id: 'lDxGHNJlws', name: 'Quintin Ed', registered: '2018/02/01', role: 'Admin', status: 'Inactive'},
+  {id: 'OB8qE3DsRb', name: 'Enéas Kwadwo', registered: '2018/03/01', role: 'Member', status: 'Pending'},
+  {id: 'QTNow0D9Es', name: 'Agapetus Tadeáš', registered: '2018/01/21', role: 'Staff', status: 'Active'},
+  {id: 'ygKqT5srpv', name: 'Carwyn Fachtna', registered: '2018/01/01', role: 'Member', status: 'Active'},
+  {id: 'BNDXCheq0X', name: 'Nehemiah Tatius', registered: '2018/02/01', role: 'Staff', status: 'Banned'},
+  {id: '0jacIPaf5s', name: 'Ebbe Gemariah', registered: '2018/02/01', role: 'Admin', status: 'Inactive'},
+  {id: 'u4b32Lp78c', name: 'Eustorgios Amulius', registered: '2018/03/01', role: 'Member', status: 'Pending'},
+  {id: 'nLqtzNCGTg', name: 'Leopold Gáspár', registered: '2018/01/21', role: 'Staff', status: 'Active'},
+  {id: 'lle9zIc2Ec', name: 'Pompeius René', registered: '2018/01/01', role: 'Member', status: 'Active'},
+  {id: 'T5h1JgrWsO', name: 'Paĉjo Jadon', registered: '2018/02/01', role: 'Staff', status: 'Banned'},
+  {id: 'I5m3TPdrxA', name: 'Micheal Mercurius', registered: '2018/02/01', role: 'Admin', status: 'Inactive'},
+  {id: 'obcmXJRxy9', name: 'Ganesha Dubhghall', registered: '2018/03/01', role: 'Member', status: 'Pending'},
+  {id: 'GdUeAF5Bir', name: 'Hiroto Šimun', registered: '2018/01/21', role: 'Staff', status: 'Active'},
+  {id: '2Z7pphbM9C', name: 'Vishnu Serghei', registered: '2018/01/01', role: 'Member', status: 'Active'},
+  {id: 'OxClAVKuR0', name: 'Zbyněk Phoibos', registered: '2018/02/01', role: 'Staff', status: 'Banned'},
+  {id: 'OvUeNQQVjm', name: 'Einar Randall', registered: '2018/02/01', role: 'Admin', status: 'Inactive'},
+  {id: 'sT2LyQkEmZ', name: 'Félix Troels', registered: '2018/03/21', role: 'Staff', status: 'Active'},
+  {id: 'iKeTfgunNu', name: 'Aulus Agmundr', registered: '2018/01/01', role: 'Member', status: 'Pending'},
+  {id: 'DYMyihkLT0', name: 'Ford Prefex', registered: '2001/05/21', role: 'Alien', status: 'Don\'t panic!'}
+]
+
+export default usersData

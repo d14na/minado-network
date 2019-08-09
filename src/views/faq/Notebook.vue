@@ -3,26 +3,17 @@
         <b-row>
             <b-col sm="6" md="4">
                 <b-card class="bg-success text-center">
-                    <blockquote class="card-blockquote">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                        <footer>Safe for ALL BEGINNERS</footer>
-                    </blockquote>
+                    <h4>FOR ALL BEGINNERS</h4>
                 </b-card>
             </b-col>
             <b-col sm="6" md="4">
                 <b-card class="bg-warning text-center">
-                    <blockquote class="card-blockquote">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                        <footer>Recommeded for EXPERIENCED miners</footer>
-                    </blockquote>
+                    <h4>FOR EXPERIENCED MINERS</h4>
                 </b-card>
             </b-col>
             <b-col sm="6" md="4">
                 <b-card class="bg-danger text-center">
-                    <blockquote class="card-blockquote">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                        <footer>WARNING!!! FOR EXPERTS ONLY</footer>
-                    </blockquote>
+                    <h4>FOR EXPERTS ONLY</h4>
                 </b-card>
             </b-col>
         </b-row><!--/.row-->
@@ -45,7 +36,7 @@
 
                     While the FPGAs didn't enjoy a 50x - 100x increase in mining speed as was seen with the transition from CPUs to GPUs, they provided a benefit through power efficiency and ease of use. A typical 600 MH/s graphics card consumed upwards of 400w of power, whereas a typical FPGA mining device would provide a hashrate of 826 MH/s at 80w of power.
                     <br /><br />
-                    
+
                     That 5x improvement allowed the first large bitcoin mining farms to be constructed at an operational profit. The bitcoin mining industry was born.
                 </b-card>
             </b-col>

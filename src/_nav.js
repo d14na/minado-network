@@ -4,8 +4,8 @@ export default {
         url: '/home',
         icon: 'icon-grid'
     }, {
-        name: 'My Foreman',
-        url: '/foreman',
+        name: 'My Foremen',
+        url: '/foremen',
         icon: 'fa fa-industry'
         // icon: 'icon-energy'
     }, {
@@ -30,8 +30,8 @@ export default {
     //         text: 'DEMO'
     //     }
     }, {
-        name: 'Faucets',
-        url: '/faucets',
+        name: 'Rewards',
+        url: '/rewards',
         icon: 'icon-present'
     // Mineables
     }, {
