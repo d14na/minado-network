@@ -5,7 +5,7 @@ import Router from 'vue-router'
 const DefaultContainer = () => import('@/containers/DefaultContainer')
 
 // Views
-const Summary = () => import('@/views/Summary')
+const Home = () => import('@/views/Home')
 
 const Colors = () => import('@/views/theme/Colors')
 
@@ -24,7 +24,6 @@ const Forms = () => import('@/views/base/Forms')
 const Switches = () => import('@/views/base/Switches')
 const Tables = () => import('@/views/base/Tables')
 const Tabs = () => import('@/views/base/Tabs')
-const Collapses = () => import('@/views/base/Collapses')
 const ListGroups = () => import('@/views/base/ListGroups')
 const Navs = () => import('@/views/base/Navs')
 const Paginations = () => import('@/views/base/Paginations')
@@ -44,16 +43,10 @@ const SimpleLineIcons = () => import('@/views/icons/SimpleLineIcons')
 const Alerts = () => import('@/views/notifications/Alerts')
 const Modals = () => import('@/views/notifications/Modals')
 
-// Views - Pages
-const Page404 = () => import('@/views/pages/Page404')
-const Page500 = () => import('@/views/pages/Page500')
-const Login = () => import('@/views/pages/Login')
-const Register = () => import('@/views/pages/Register')
-
 // Users
-const Ministo = () => import('@/views/ministo/Users')
-const Users = () => import('@/views/ministo/Users')
-const User = () => import('@/views/ministo/User')
+const Foreman = () => import('@/views/foreman/Users')
+const Users = () => import('@/views/foreman/Users')
+const User = () => import('@/views/foreman/User')
 
 // FAQ
 // const Questions = () => import('@/views/faq/Questions')
@@ -71,17 +64,17 @@ export default new Router({
     scrollBehavior: () => ({ y: 0 }),
     routes: [{
         path: '/',
-        redirect: '/summary',
-        name: 'Minado',
+        redirect: '/home',
+        name: 'Home',
         component: DefaultContainer,
         children: [{
-            path: 'summary',
-            name: 'Summary',
-            component: Summary
+            path: 'home',
+            name: 'Home',
+            component: Home
         }, {
-            path: 'ministo',
-            name: 'Ministo',
-            component: Ministo
+            path: 'foreman',
+            name: 'Foreman',
+            component: Foreman
         }, {
             path: 'infinitypool',
             name: 'InfinityPool',
@@ -127,7 +120,7 @@ export default new Router({
             }]
         }, {
             path: 'tag',
-            meta: { label: 'Ministo'},
+            meta: { label: 'Foreman'},
             component: {
                 render (c) { return c('router-view') }
             },
@@ -136,8 +129,8 @@ export default new Router({
                 component: Users,
             }, {
                 path: ':id',
-                meta: { label: 'Ministo Dashboard'},
-                name: 'Ministo',
+                meta: { label: 'Foreman Dashboard'},
+                name: 'Foreman',
                 component: User,
             }]
 
@@ -185,10 +178,6 @@ export default new Router({
                 path: 'tabs',
                 name: 'Tabs',
                 component: Tabs
-            }, {
-                path: 'collapses',
-                name: 'Collapses',
-                component: Collapses
             }, {
                 path: 'list-groups',
                 name: 'List Groups',
@@ -262,30 +251,6 @@ export default new Router({
                 name: 'Modals',
                 component: Modals
             }]
-        }]
-    }, {
-        path: '/pages',
-        redirect: '/pages/404',
-        name: 'Pages',
-        component: {
-            render (c) { return c('router-view') }
-        },
-        children: [{
-            path: '404',
-            name: 'Page404',
-            component: Page404
-        }, {
-            path: '500',
-            name: 'Page500',
-            component: Page500
-        }, {
-            path: 'login',
-            name: 'Login',
-            component: Login
-        }, {
-            path: 'register',
-            name: 'Register',
-            component: Register
         }]
     }]
 })

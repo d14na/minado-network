@@ -1,34 +1,34 @@
 export default {
     items: [{
-        name: 'Summary',
-        url: '/summary',
+        name: 'My Home',
+        url: '/home',
         icon: 'icon-grid'
     }, {
-        name: 'Ministo',
-        url: '/ministo',
-        // icon: 'fa fa-industry'
-        icon: 'icon-energy'
+        name: 'My Foreman',
+        url: '/foreman',
+        icon: 'fa fa-industry'
+        // icon: 'icon-energy'
     }, {
-        name: 'Payouts',
+        name: 'My Payouts',
         url: '/payouts',
         icon: 'fa fa-usd'
     // Community
     }, {
         title: true,
         name: 'Community'
-    }, {
-        name: 'InfinityPool',
-        url: '/infinitypool',
-        icon: 'icon-layers'
-    }, {
-        name: 'InfinityWell',
-        url: '/infinitywell',
-        icon: 'icon-present',
-        // variant: 'info',
-        badge: {
-            variant: 'warning',
-            text: 'DEMO'
-        }
+    // }, {
+    //     name: 'InfinityPool',
+    //     url: '/infinitypool',
+    //     icon: 'icon-layers'
+    // }, {
+    //     name: 'InfinityWell',
+    //     url: '/infinitywell',
+    //     icon: 'icon-present',
+    //     // variant: 'info',
+    //     badge: {
+    //         variant: 'warning',
+    //         text: 'DEMO'
+    //     }
     }, {
         name: 'Faucets',
         url: '/faucets',
