@@ -415,6 +415,25 @@ export default {
         flag (value) {
             return 'flag-icon flag-icon-' + value
         }
+    },
+    methods: {
+        getListing () {
+            const rp = require('request-promise')
+
+            const requestOptions = {
+                method: 'GET',
+                uri: 'https://db.0net.io/v1/getUint/0x9b7396ba7848459ddbaa41b35e502a95d1df654913a5b67c4e7870bd40064612'
+            }
+
+            rp(requestOptions).then(response => {
+                console.log('API call response:', response)
+            }).catch((err) => {
+                console.log('API call error:', err.message)
+            })
+        }
+    },
+    mounted: async function () {
+        this.getListing()
     }
 }
 </script>

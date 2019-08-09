@@ -483,6 +483,9 @@ export default {
         flag (value) {
             return 'flag-icon flag-icon-' + value
         }
+    },
+    mounted: async function () {
+        //
     }
 }
 </script>
