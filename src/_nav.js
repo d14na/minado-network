@@ -1,6 +1,6 @@
 export default {
     items: [{
-        name: 'My Home',
+        name: 'Home',
         url: '/home',
         icon: 'icon-grid'
     }, {
@@ -74,10 +74,6 @@ export default {
         }, {
             name: 'Cards',
             url: '/base/cards',
-            icon: 'icon-puzzle'
-        }, {
-            name: 'Collapses',
-            url: '/base/collapses',
             icon: 'icon-puzzle'
         }, {
             name: 'Forms',

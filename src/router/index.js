@@ -67,7 +67,7 @@ export default new Router({
     routes: [{
         path: '/',
         redirect: '/home',
-        name: 'My Home',
+        name: 'Home',
         component: DefaultContainer,
         children: [{
             path: 'home',
