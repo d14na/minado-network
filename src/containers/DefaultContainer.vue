@@ -14,8 +14,7 @@
                 <!-- <b-nav-item class="px-3" to="/dashboard">Dashboard</b-nav-item>
                 <b-nav-item class="px-3" to="/ministo" exact>Ministo</b-nav-item> -->
                 <div class="tagline">
-                    Welcome to&nbsp;<strong>Minado.Network</strong>&nbsp;::
-                    POW Token Mining Community
+                    Welcome to Minado :. POW Token Mining Community
                 </div>
             </b-navbar-nav>
 

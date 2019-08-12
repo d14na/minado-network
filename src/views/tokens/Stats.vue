@@ -6,7 +6,7 @@
                     <b-card-body class="p-3 clearfix">
                         <i class="fa fa-cogs bg-primary p-3 font-2xl mr-3 float-left"></i>
                         <div class="h5 text-primary mb-0 mt-2">$0.0089</div>
-                        <div class="text-muted text-uppercase font-weight-bold font-xs">Per MegaLode</div>
+                        <div class="text-muted text-uppercase font-weight-bold font-xs">Per Mega Lode</div>
                     </b-card-body>
                 </b-card>
             </b-col>
@@ -26,7 +26,7 @@
                     <b-card-body class="p-3 clearfix">
                         <i class="fa fa-moon-o bg-info p-3 font-2xl mr-3 float-left"></i>
                         <div class="h5 text-info mb-0 mt-2">+4.528%</div>
-                        <div class="text-muted text-uppercase font-weight-bold font-xs">Profit Estimate</div>
+                        <div class="text-muted text-uppercase font-weight-bold font-xs">Profit Forecast</div>
                     </b-card-body>
                 </b-card>
             </b-col>

@@ -1,7 +1,7 @@
 {
     "name": "minado-network",
-    "version": "19.8.9",
-    "description": "Minado.Network Web Portal",
+    "version": "19.8.12",
+    "description": "Minado.Network - POW Token Mining Community",
     "license": "MIT",
     "scripts": {
         "serve": "vue-cli-service serve",
@@ -23,7 +23,7 @@
         "ethers": "4.0.32",
         "flag-icon-css": "3.2.0",
         "font-awesome": "4.7.0",
-        "numeral": "^2.0.6",
+        "numeral": "2.0.6",
         "perfect-scrollbar": "1.4.0",
         "request-promise": "4.2.4",
         "simple-line-icons": "2.4.1",

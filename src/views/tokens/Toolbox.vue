@@ -92,6 +92,13 @@
                         <li>
                             Token Holders - 5,572 holders
                         </li>
+                        <li>
+                            Mined - 4,710,000 0xBTC<br />
+                            $986,860.04 in 94,200 mints
+                        </li>
+                        <li>
+                            Transfers - $5,190,946.56 in 200,014 transfers
+                        </li>
                     </ol>
                 </b-tab>
             </b-tabs>

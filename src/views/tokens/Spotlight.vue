@@ -12,7 +12,7 @@
                     <hr>
 
                     <p class="mb-0">
-                        <b-button variant="danger">Start Mining!</b-button>
+                        <b-button variant="danger"><strong>Start Mining!</strong></b-button>
 
                         <b-dropdown class="ml-4" right split text="Docs" variant="dark" offset="70">
                             <b-dropdown-item>White Paper</b-dropdown-item>
