@@ -2,7 +2,7 @@
     <div class="animated fadeIn">
         <b-card>
             <div slot="header">
-                0xBitcoin Token Toolbox
+                <strong>Toolbox</strong>
             </div>
 
             <b-tabs>
@@ -10,12 +10,61 @@
                     <template slot="title">
                         <i class="icon-calculator"></i>
                     </template>
-                    <br> 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                    officia deserunt mollit anim id est laborum.
+
+                    <b-card>
+                        <div slot="header">
+                            <strong>Profit Calculator</strong>
+                        </div>
+
+                        <b-row>
+                            <b-col sm="12">
+                                <b-form-group>
+                                    <label for="name">Name</label>
+                                    <b-form-input type="text" id="name" placeholder="Enter your name"></b-form-input>
+                                </b-form-group>
+                            </b-col>
+                        </b-row>
+
+                        <b-row>
+                            <b-col sm="12">
+                                <b-form-group>
+                                    <label for="ccnumber">Credit Card Number</label>
+                                    <b-form-input type="text" id="ccnumber" placeholder="0000 0000 0000 0000"></b-form-input>
+                                </b-form-group>
+                            </b-col>
+                        </b-row>
+
+                        <b-row>
+                            <b-col sm="4">
+                                <b-form-group >
+                                    <label for="month1">Month</label>
+                                    <b-form-select id="month1"
+                                        :plain="true"
+                                        :options="[1,2,3,4,5,6,7,8,9,10,11,12]">
+                                    </b-form-select>
+                                </b-form-group>
+                            </b-col>
+
+                            <b-col sm="4">
+                                <b-form-group>
+                                    <label for="year1">Year</label>
+                                    <b-form-select id="year1"
+                                        :plain="true"
+                                        :options="[2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025]">
+                                    </b-form-select>
+                                </b-form-group>
+                            </b-col>
+
+                            <b-col sm="4">
+                                <b-form-group>
+                                    <label for="cvv">CVV/CVC</label>
+                                    <b-form-input type="text" id="cvv" placeholder="123"></b-form-input>
+                                </b-form-group>
+                            </b-col>
+                        </b-row>
+                    </b-card>
                 </b-tab>
+
                 <b-tab>
                     <template slot="title">
                         <i class="icon-basket-loaded"></i>
@@ -45,13 +94,6 @@
                         </li>
                     </ol>
                 </b-tab>
-                <b-tab>
-                    <template slot="title">
-                        <i class="icon-magnifier"></i>
-                    </template>
-
-                    <c-table :table-data="items" small caption="<i class='fa fa-search'></i> Block Explorer"></c-table>
-                </b-tab>
             </b-tabs>
         </b-card>
     </div>
@@ -62,53 +104,13 @@
 import { ethers } from 'ethers'
 import numeral from 'numeral'
 
-import { shuffleArray } from '@/shared/utils'
-import cTable from './Table.vue'
-
-const someData = () => shuffleArray([
-  {username: 'Samppa Nori', registered: '2012/01/01', role: 'Member', status: 'Active', _rowVariant: 'success'},
-  {username: 'Estavan Lykos', registered: '2012/02/01', role: 'Staff', status: 'Banned', _rowVariant: 'danger'},
-  {username: 'Chetan Mohamed', registered: '2012/02/01', role: 'Admin', status: 'Inactive', _rowVariant: 'info'},
-  {username: 'Derick Maximinus', registered: '2012/03/01', role: 'Member', status: 'Pending'},
-  {username: 'Friderik Dávid', registered: '2012/01/21', role: 'Staff', status: 'Active'},
-  {username: 'Yiorgos Avraamu', registered: '2012/01/01', role: 'Member', status: 'Active'},
-  {username: 'Avram Tarasios', registered: '2012/02/01', role: 'Staff', status: 'Banned'},
-  {username: 'Quintin Ed', registered: '2012/02/01', role: 'Admin', status: 'Inactive'},
-  {username: 'Enéas Kwadwo', registered: '2012/03/01', role: 'Member', status: 'Pending'},
-  {username: 'Agapetus Tadeáš', registered: '2012/01/21', role: 'Staff', status: 'Active'},
-  {username: 'Carwyn Fachtna', registered: '2012/01/01', role: 'Member', status: 'Active'},
-  {username: 'Nehemiah Tatius', registered: '2012/02/01', role: 'Staff', status: 'Banned'},
-  {username: 'Ebbe Gemariah', registered: '2012/02/01', role: 'Admin', status: 'Inactive'},
-  {username: 'Eustorgios Amulius', registered: '2012/03/01', role: 'Member', status: 'Pending'},
-  {username: 'Leopold Gáspár', registered: '2012/01/21', role: 'Staff', status: 'Active'},
-  {username: 'Pompeius René', registered: '2012/01/01', role: 'Member', status: 'Active'},
-  {username: 'Paĉjo Jadon', registered: '2012/02/01', role: 'Staff', status: 'Banned'},
-  {username: 'Micheal Mercurius', registered: '2012/02/01', role: 'Admin', status: 'Inactive'},
-  {username: 'Ganesha Dubhghall', registered: '2012/03/01', role: 'Member', status: 'Pending'},
-  {username: 'Hiroto Šimun', registered: '2012/01/21', role: 'Staff', status: 'Active'},
-  {username: 'Vishnu Serghei', registered: '2012/01/01', role: 'Member', status: 'Active'},
-  {username: 'Zbyněk Phoibos', registered: '2012/02/01', role: 'Staff', status: 'Banned'},
-  {username: 'Einar Randall', registered: '2012/02/01', role: 'Admin', status: 'Inactive'},
-  {username: 'Félix Troels', registered: '2012/03/21', role: 'Staff', status: 'Active'},
-  {username: 'Aulus Agmundr', registered: '2012/01/01', role: 'Member', status: 'Pending'}
-])
-
 export default {
     components: {
-        cTable
+        //
     },
     data () {
         return {
             difficulty: 0,
-
-            items: someData,
-            itemsArray: someData(),
-            fields: [
-                {key: 'username', label: 'User', sortable: true},
-                {key: 'registered'},
-                {key: 'role'},
-                {key: 'status', sortable: true}
-            ]
         }
     },
     methods: {

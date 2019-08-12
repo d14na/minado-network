@@ -14,7 +14,7 @@
         <!-- </b-col> -->
         </b-row>
 
-        <Explorer />
+        <Recent />
     </div>
 </template>
 
@@ -32,7 +32,7 @@ import CalloutChartExample from '../dashboard/CalloutChartExample'
 import { Callout } from '@coreui/vue'
 
 /* Import components. */
-import Explorer from './Explorer.vue'
+import Recent from './Recent.vue'
 import Social from './Social.vue'
 import Spotlight from './Spotlight.vue'
 import Stats from './Stats.vue'
@@ -40,7 +40,7 @@ import Toolbox from './Toolbox.vue'
 
 export default {
     components: {
-        Explorer,
+        Recent,
         Social,
         Spotlight,
         Stats,

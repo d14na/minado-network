@@ -44,14 +44,20 @@
                     </div>
                 </div>
             </b-col>
+        </b-row>
 
-            <b-card class="card-accent-danger" header="Latest Headline from Reddit">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-            </b-card>
+        <b-row>
+            <b-col sm="6" xs="12">
+                <b-card class="card-accent-danger" header="Reddit Headline">
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat...
+                </b-card>
+            </b-col>
 
-            <b-card class="card-accent-info" header="Latest Headline from Other">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-            </b-card>
+            <b-col sm="6" xs="12">
+                <b-card class="card-accent-info" header="Other Headline">
+                  Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat...
+                </b-card>
+            </b-col>
         </b-row>
     </div>
 </template>

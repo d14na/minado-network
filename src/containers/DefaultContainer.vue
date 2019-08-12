@@ -11,8 +11,12 @@
             <SidebarToggler class="d-md-down-none" display="lg" />
 
             <b-navbar-nav class="d-md-down-none">
-                <b-nav-item class="px-3" to="/dashboard">Dashboard</b-nav-item>
-                <b-nav-item class="px-3" to="/ministo" exact>Ministo</b-nav-item>
+                <!-- <b-nav-item class="px-3" to="/dashboard">Dashboard</b-nav-item>
+                <b-nav-item class="px-3" to="/ministo" exact>Ministo</b-nav-item> -->
+                <div class="tagline">
+                    Welcome to&nbsp;<strong>Minado.Network</strong>&nbsp;::
+                    POW Token Mining Community
+                </div>
             </b-navbar-nav>
 
             <b-navbar-nav class="ml-auto">
@@ -121,3 +125,10 @@ export default {
     }
 }
 </script>
+
+<style>
+.tagline {
+    font-style: italic;
+    margin-left: 10px;
+}
+</style>

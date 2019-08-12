@@ -7,7 +7,6 @@
                     <p>
                         0xBitcoin is the implementation of Bitcoin in Solidity and is the first decentralized ERC20 token for Ethereum.
                         0xBitcoin Token combines the scarcity and fair distribution model of Bitcoin with the speed and power of the Ethereum ecosystem.
-                        Thus, it is named 0xBitcoin or 0xBTC where 0x represents the Ethereum Network and ecosystem.
                     </p>
 
                     <hr>

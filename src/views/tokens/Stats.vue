@@ -6,7 +6,7 @@
                     <b-card-body class="p-3 clearfix">
                         <i class="fa fa-cogs bg-primary p-3 font-2xl mr-3 float-left"></i>
                         <div class="h5 text-primary mb-0 mt-2">$0.0089</div>
-                        <div class="text-muted text-uppercase font-weight-bold font-xs">Per MegaLoad</div>
+                        <div class="text-muted text-uppercase font-weight-bold font-xs">Per MegaLode</div>
                     </b-card-body>
                 </b-card>
             </b-col>
@@ -24,9 +24,9 @@
             <b-col cols="12" sm="6" lg="3">
                 <b-card :no-body="true" footer-class="px-3 py-2">
                     <b-card-body class="p-3 clearfix">
-                        <i class="fa fa-moon-o bg-warning p-3 font-2xl mr-3 float-left"></i>
-                        <div class="h5 text-warning mb-0 mt-2">+4.528%</div>
-                        <div class="text-muted text-uppercase font-weight-bold font-xs">Profit Margin</div>
+                        <i class="fa fa-moon-o bg-info p-3 font-2xl mr-3 float-left"></i>
+                        <div class="h5 text-info mb-0 mt-2">+4.528%</div>
+                        <div class="text-muted text-uppercase font-weight-bold font-xs">Profit Estimate</div>
                     </b-card-body>
                 </b-card>
             </b-col>
@@ -34,8 +34,8 @@
             <b-col cols="12" sm="6" lg="3">
                 <b-card :no-body="true" footer-class="px-3 py-2">
                     <b-card-body class="p-3 clearfix">
-                        <i class="fa fa-laptop bg-info p-3 font-2xl mr-3 float-left"></i>
-                        <div class="h5 text-info mb-0 mt-2">$1,125,912.45</div>
+                        <i class="fa fa-laptop bg-warning p-3 font-2xl mr-3 float-left"></i>
+                        <div class="h5 text-warning mb-0 mt-2">$1,125,912.45</div>
                         <div class="text-muted text-uppercase font-weight-bold font-xs">Market Cap</div>
                     </b-card-body>
                 </b-card>
