@@ -20,21 +20,34 @@
                     <template slot="title">
                         <i class="icon-basket-loaded"></i>
                     </template>
-                    <br>2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                    officia deserunt mollit anim id est laborum.
+
+                    <ol>
+                        <li>
+                            Rewards Until Re-adjustment - 117 (~1.8 days)
+                        </li>
+                        <li>
+                            Current Average Reward Time - 22.19 minutes
+                        </li>
+                        <li>
+                            Tokens Minted - 4,806,900 - 0xBTC
+                        </li>
+                        <li>
+                            Current Mining Reward - 50 0xBTC
+                        </li>
+                        <li>
+                            Total Supply - 20,999,983.69 0xBTC
+                        </li>
+                        <li>
+                            Token Holders - 5,572 holders
+                        </li>
+                    </ol>
                 </b-tab>
                 <b-tab>
                     <template slot="title">
-                        <i class="icon-pie-chart"></i>
+                        <i class="icon-magnifier"></i>
                     </template>
-                    <br>3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                    officia deserunt mollit anim id est laborum.
+
+                    <c-table :table-data="items" small caption="<i class='fa fa-search'></i> Block Explorer"></c-table>
                 </b-tab>
             </b-tabs>
         </b-card>
@@ -42,10 +55,51 @@
 </template>
 
 <script>
-export default {
-    data: () => ({
+import { shuffleArray } from '@/shared/utils'
+import cTable from './Table.vue'
 
-    }),
+const someData = () => shuffleArray([
+  {username: 'Samppa Nori', registered: '2012/01/01', role: 'Member', status: 'Active', _rowVariant: 'success'},
+  {username: 'Estavan Lykos', registered: '2012/02/01', role: 'Staff', status: 'Banned', _rowVariant: 'danger'},
+  {username: 'Chetan Mohamed', registered: '2012/02/01', role: 'Admin', status: 'Inactive', _rowVariant: 'info'},
+  {username: 'Derick Maximinus', registered: '2012/03/01', role: 'Member', status: 'Pending'},
+  {username: 'Friderik Dávid', registered: '2012/01/21', role: 'Staff', status: 'Active'},
+  {username: 'Yiorgos Avraamu', registered: '2012/01/01', role: 'Member', status: 'Active'},
+  {username: 'Avram Tarasios', registered: '2012/02/01', role: 'Staff', status: 'Banned'},
+  {username: 'Quintin Ed', registered: '2012/02/01', role: 'Admin', status: 'Inactive'},
+  {username: 'Enéas Kwadwo', registered: '2012/03/01', role: 'Member', status: 'Pending'},
+  {username: 'Agapetus Tadeáš', registered: '2012/01/21', role: 'Staff', status: 'Active'},
+  {username: 'Carwyn Fachtna', registered: '2012/01/01', role: 'Member', status: 'Active'},
+  {username: 'Nehemiah Tatius', registered: '2012/02/01', role: 'Staff', status: 'Banned'},
+  {username: 'Ebbe Gemariah', registered: '2012/02/01', role: 'Admin', status: 'Inactive'},
+  {username: 'Eustorgios Amulius', registered: '2012/03/01', role: 'Member', status: 'Pending'},
+  {username: 'Leopold Gáspár', registered: '2012/01/21', role: 'Staff', status: 'Active'},
+  {username: 'Pompeius René', registered: '2012/01/01', role: 'Member', status: 'Active'},
+  {username: 'Paĉjo Jadon', registered: '2012/02/01', role: 'Staff', status: 'Banned'},
+  {username: 'Micheal Mercurius', registered: '2012/02/01', role: 'Admin', status: 'Inactive'},
+  {username: 'Ganesha Dubhghall', registered: '2012/03/01', role: 'Member', status: 'Pending'},
+  {username: 'Hiroto Šimun', registered: '2012/01/21', role: 'Staff', status: 'Active'},
+  {username: 'Vishnu Serghei', registered: '2012/01/01', role: 'Member', status: 'Active'},
+  {username: 'Zbyněk Phoibos', registered: '2012/02/01', role: 'Staff', status: 'Banned'},
+  {username: 'Einar Randall', registered: '2012/02/01', role: 'Admin', status: 'Inactive'},
+  {username: 'Félix Troels', registered: '2012/03/21', role: 'Staff', status: 'Active'},
+  {username: 'Aulus Agmundr', registered: '2012/01/01', role: 'Member', status: 'Pending'}
+])
+
+export default {
+    components: {cTable},
+    data: () => {
+        return {
+            items: someData,
+            itemsArray: someData(),
+            fields: [
+                {key: 'username', label: 'User', sortable: true},
+                {key: 'registered'},
+                {key: 'role'},
+                {key: 'status', sortable: true}
+            ]
+        }
+    },
     methods: {
         init () {
             /* Initialize primary web socket connection. */

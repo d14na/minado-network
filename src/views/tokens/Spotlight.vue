@@ -2,26 +2,28 @@
     <div class="animated fadeIn">
         <b-row>
             <b-col cols="12" md="6">
-                <b-alert show variant="info">
+                <b-alert show variant="dark">
                     <h4 class="alert-heading">0xBitcoin Pure-mined ERC20 Currency</h4>
                     <p>
                         0xBitcoin is the implementation of Bitcoin in Solidity and is the first decentralized ERC20 token for Ethereum.
                         0xBitcoin Token combines the scarcity and fair distribution model of Bitcoin with the speed and power of the Ethereum ecosystem.
                         Thus, it is named 0xBitcoin or 0xBTC where 0x represents the Ethereum Network and ecosystem.
                     </p>
+
                     <hr>
+
                     <p class="mb-0">
-                        <b-dropdown right split text="Documents" variant="info">
+                        <b-dropdown right split text="Documents" variant="dark">
                             <b-dropdown-item>White Paper</b-dropdown-item>
                         </b-dropdown>
 
-                        <b-dropdown class="ml-3" right split text="Links" variant="info">
+                        <b-dropdown class="ml-3" right split text="Links" variant="dark">
                             <b-dropdown-item>Website</b-dropdown-item>
                             <b-dropdown-item>Reddit</b-dropdown-item>
                             <b-dropdown-item>Github</b-dropdown-item>
                         </b-dropdown>
 
-                        <b-dropdown class="ml-3" right split text="Contacts" variant="info">
+                        <b-dropdown class="ml-3" right split text="Contacts" variant="dark">
                             <b-dropdown-item>Discord</b-dropdown-item>
                             <b-dropdown-item>Telegram</b-dropdown-item>
                             <b-dropdown-item>Email</b-dropdown-item>

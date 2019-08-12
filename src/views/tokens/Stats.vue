@@ -8,9 +8,6 @@
                         <div class="h5 text-primary mb-0 mt-2">$0.0089</div>
                         <div class="text-muted text-uppercase font-weight-bold font-xs">Per MegaLoad</div>
                     </b-card-body>
-                    <div slot="footer">
-                        <b-link class="font-weight-bold font-xs btn-block text-muted" href="#">Open Full View <i class="fa fa-angle-right float-right font-lg"></i></b-link>
-                    </div>
                 </b-card>
             </b-col>
 
@@ -21,9 +18,6 @@
                         <div class="h5 text-danger mb-0 mt-2">$51,840.00</div>
                         <div class="text-muted text-uppercase font-weight-bold font-xs">Monthly Mint</div>
                     </b-card-body>
-                    <div slot="footer">
-                        <b-link class="font-weight-bold font-xs btn-block text-muted" href="#">Open Full View <i class="fa fa-angle-right float-right font-lg"></i></b-link>
-                    </div>
                 </b-card>
             </b-col>
 
@@ -34,9 +28,6 @@
                         <div class="h5 text-warning mb-0 mt-2">+4.528%</div>
                         <div class="text-muted text-uppercase font-weight-bold font-xs">Profit Margin</div>
                     </b-card-body>
-                    <div slot="footer">
-                        <b-link class="font-weight-bold font-xs btn-block text-muted" href="#">Open Full View <i class="fa fa-angle-right float-right font-lg"></i></b-link>
-                    </div>
                 </b-card>
             </b-col>
 
@@ -47,9 +38,6 @@
                         <div class="h5 text-info mb-0 mt-2">$1,125,912.45</div>
                         <div class="text-muted text-uppercase font-weight-bold font-xs">Market Cap</div>
                     </b-card-body>
-                    <div slot="footer">
-                        <b-link class="font-weight-bold font-xs btn-block text-muted" href="#">Open Full View <i class="fa fa-angle-right float-right font-lg"></i></b-link>
-                    </div>
                 </b-card>
             </b-col>
         </b-row>
