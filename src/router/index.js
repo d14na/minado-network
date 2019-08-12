@@ -11,7 +11,6 @@ const Colors = () => import('@/views/theme/Colors')
 
 const Widgets = () => import('@/views/Widgets')
 
-const Calculators = () => import('@/views/Calculators')
 const InfinityPool = () => import('@/views/InfinityPool')
 const InfinityWell = () => import('@/views/InfinityWell')
 // const Rewards = () => import('@/views/Rewards')
@@ -101,10 +100,6 @@ export default new Router({
             path: '0xBTC',
             name: '0xBitcoin Token',
             component: _0xBTC
-        }, {
-            path: 'calculators',
-            name: 'Calculators',
-            component: Calculators
         }, {
             path: 'notebook',
             meta: { label: `Notebook`},

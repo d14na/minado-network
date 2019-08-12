@@ -23,6 +23,9 @@
 
                     <ol>
                         <li>
+                            Current Difficulty: <strong>{{difficulty}}</strong>
+                        </li>
+                        <li>
                             Rewards Until Re-adjustment - 117 (~1.8 days)
                         </li>
                         <li>
@@ -55,6 +58,10 @@
 </template>
 
 <script>
+/* Import modules. */
+import { ethers } from 'ethers'
+import numeral from 'numeral'
+
 import { shuffleArray } from '@/shared/utils'
 import cTable from './Table.vue'
 
@@ -87,9 +94,13 @@ const someData = () => shuffleArray([
 ])
 
 export default {
-    components: {cTable},
-    data: () => {
+    components: {
+        cTable
+    },
+    data () {
         return {
+            difficulty: 0,
+
             items: someData,
             itemsArray: someData(),
             fields: [
@@ -102,8 +113,29 @@ export default {
     },
     methods: {
         init () {
-            /* Initialize primary web socket connection. */
-            // this.ws = new WebSocket(MINADO_NETWORK_URL)
+            /* Load stats. */
+            this.loadStats()
+        },
+        async loadStats () {
+            /* Initialize contract ABI. */
+            const abi = require('../../../contracts/_0xBitcoinToken.json')
+
+            /* Initialize blockchain provider. */
+            const provider = ethers.getDefaultProvider()
+
+            /* Initialize (token) contract address. */
+            const contractAddress = '0xB6eD7644C69416d67B522e20bC294A9a9B405B31'
+
+            /* Initialize contract. */
+            const contract = new ethers.Contract(contractAddress, abi, provider)
+
+            /* Retrieve difficulty. */
+            let difficulty = await contract.getMiningDifficulty()
+
+            /* Set (formatted) difficulty. */
+            this.difficulty = ethers.utils.commify(difficulty.toString())
+
+            console.log('Mining Difficulty', this.difficulty)
         }
     },
     mounted: async function () {

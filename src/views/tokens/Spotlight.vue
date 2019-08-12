@@ -13,17 +13,19 @@
                     <hr>
 
                     <p class="mb-0">
-                        <b-dropdown right split text="Documents" variant="dark">
+                        <b-button variant="danger">Start Mining!</b-button>
+
+                        <b-dropdown class="ml-4" right split text="Docs" variant="dark" offset="70">
                             <b-dropdown-item>White Paper</b-dropdown-item>
                         </b-dropdown>
 
-                        <b-dropdown class="ml-3" right split text="Links" variant="dark">
+                        <b-dropdown class="ml-2" right split text="Links" variant="dark" offset="70">
                             <b-dropdown-item>Website</b-dropdown-item>
                             <b-dropdown-item>Reddit</b-dropdown-item>
                             <b-dropdown-item>Github</b-dropdown-item>
                         </b-dropdown>
 
-                        <b-dropdown class="ml-3" right split text="Contacts" variant="dark">
+                        <b-dropdown class="ml-2" right split text="Contacts" variant="dark" offset="45">
                             <b-dropdown-item>Discord</b-dropdown-item>
                             <b-dropdown-item>Telegram</b-dropdown-item>
                             <b-dropdown-item>Email</b-dropdown-item>

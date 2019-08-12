@@ -12,7 +12,8 @@ export default {
         name: 'My Payouts',
         url: '/payouts',
         icon: 'fa fa-usd'
-    // Community
+
+// Community
     }, {
         title: true,
         name: 'Community'
@@ -33,7 +34,12 @@ export default {
         name: 'Rewards',
         url: '/rewards',
         icon: 'icon-present'
-    // Mineables
+    }, {
+        name: `Notebook`,
+        url: '/notebook',
+        icon: 'icon-info'
+
+// Mineables
     }, {
         title: true,
         name: 'Mineables'
@@ -50,19 +56,8 @@ export default {
             variant: 'warning',
             text: 'NEW'
         }
-    // Extras
-    }, {
-        title: true,
-        name: 'Extras'
-    }, {
-        name: 'Calculators',
-        url: '/calculators',
-        icon: 'icon-calculator'
-    }, {
-        name: `Notebook`,
-        url: '/notebook',
-        icon: 'icon-info'
-    // Developer Use ONLY
+
+// Developer Use ONLY
     }, {
         name: 'Dev Use ONLY',
         url: '/base',
