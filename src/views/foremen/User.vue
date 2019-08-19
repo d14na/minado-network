@@ -86,18 +86,11 @@
 
 <script>
 /* Import libraries. */
-import SockJS from 'sockjs-client'
 import usersData from './UsersData'
 
 /* Import components. */
 import Dashboard from './Dashboard.vue'
 import SettingsAdvanced from './SettingsAdvanced.vue'
-
-/* Initialize libraries. */
-const ethers = require('ethers')
-
-/* Initialize constants. */
-const MINADO_NETWORK_URL = 'http://asia.minado.network'
 
 export default {
     components: {
@@ -111,7 +104,7 @@ export default {
       },
     },
     data: () => ({
-        ws: null, // WebSocket
+        text: 'what kind of text do you want here?',
 
         // selected: [], // Must be an array reference!
         // show: true,
@@ -127,33 +120,7 @@ export default {
     }),
     methods: {
         init () {
-            /* Initialize primary web socket connection. */
-            // this.ws = new WebSocket(MINADO_NETWORK_URL)
-
-            this.ws = new SockJS(MINADO_NETWORK_URL)
-
-            console.log('this.ws', this.ws)
-
-            this.ws.onopen = () => {
-                console.log('open')
-
-                /* Build package. */
-                const pkg = {
-                    client: 'web',
-                    version: 'latest'
-                }
-
-                this.ws.send(JSON.stringify(pkg))
-            }
-
-            this.ws.onmessage = (e) => {
-                console.log('Incoming message:', e.data)
-                // this.ws.close()
-            }
-
-            this.ws.onclose = () => {
-                console.log('Connection closed.')
-            }
+            console.log('Initializing Foremen')
         },
         startMining () {
             console.log('start mining')
@@ -188,7 +155,7 @@ export default {
             this.$router.go(-1)
         }
     },
-    mounted: async function () {
+    mounted: function () {
         /* Initialize. */
         this.init()
     }

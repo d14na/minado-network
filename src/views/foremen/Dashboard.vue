@@ -10,6 +10,12 @@
             </b-input-group>
         </b-form-group>
 
+        <b-card-body>
+            <p class="card-text">
+                {{ showLatest }}
+            </p>
+        </b-card-body>
+
         <b-form-group>
             <b-input-group>
                 <b-form-input type="email" placeholder="Email" autocomplete="email"></b-form-input>
@@ -30,14 +36,42 @@
 </template>
 
 <script>
+/* Import local libraries. */
+const utils = require('@/_utils')
+
 export default {
     data: () => ({
 
     }),
+    computed: {
+        showLatest () {
+            return this.$store.state.reports[this.$store.state.reports.length - 1]
+        }
+    },
     methods: {
         init () {
-            /* Initialize primary web socket connection. */
-            // this.ws = new WebSocket(MINADO_NETWORK_URL)
+            /* Set WebSocket. */
+            const ws = this.$store.state.ws
+
+            /* Set action. */
+            const action = 'subscribe'
+
+            /* Set tag. */
+            const tag = this.$route.params.id
+
+            /* Build package. */
+            const pkg = { action, tag }
+
+            /* Validate ready state. */
+            if (ws.readyState === 1) { // SockJS.OPEN
+                /* Send package to server. */
+                ws.send(JSON.stringify(pkg))
+            } else {
+                console.error(`Oops! WebSocket connection is NOT READY. Current state is [ ${ws.readyState} ]`)
+
+                /* Attempt re-connection. */
+                utils.reconnect(this.init, 1000)
+            }
         }
     },
     mounted: async function () {
