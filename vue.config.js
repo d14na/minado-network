@@ -4,7 +4,7 @@ module.exports = {
   baseUrl: '',
   outputDir: undefined,
   assetsDir: undefined,
-  productionSourceMap: undefined,
+  productionSourceMap: false,
   parallel: undefined,
   css: undefined
 }

@@ -102,8 +102,7 @@ const MINADO_NETWORK_URL = 'http://asia.minado.network'
 export default {
     components: {
         Dashboard,
-        SettingsAdvanced,
-        Stats
+        SettingsAdvanced
     },
     props: {
       caption: {
